@@ -1,0 +1,6 @@
+{
+  "name": "TechNova International",
+  "description": "TechNova International inspires students through Coding, Artificial Intelligence, Robotics, STEM Education and the International Junior Coding Championship.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
