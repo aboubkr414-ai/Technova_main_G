@@ -1,18 +1,27 @@
 import { useState, FormEvent } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Mail, MessageSquare, Globe, ArrowRight, CheckCircle2, ShieldCheck } from 'lucide-react';
+import { Language, translations } from '../translations';
 
-export default function Contact() {
+interface ContactProps {
+  lang: Language;
+}
+
+export default function Contact({ lang }: ContactProps) {
+  const t = translations[lang];
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    role: 'Parent',
+    role: lang === 'en' ? 'Parent' : 'ولي أمر',
     message: '',
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const rolesList = ['Parent', 'School Principal', 'Educator', 'Student', 'Sponsor / Partner'];
+  const rolesList = lang === 'en'
+    ? ['Parent', 'School Principal', 'Educator', 'Student', 'Sponsor / Partner']
+    : ['ولي أمر', 'مدير مدرسة', 'معلم', 'طالب', 'راعٍ / شريك رسمي'];
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -23,7 +32,7 @@ export default function Contact() {
       setIsSubmitting(false);
       setIsSubmitted(true);
       // Reset form after submission
-      setFormData({ name: '', email: '', role: 'Parent', message: '' });
+      setFormData({ name: '', email: '', role: lang === 'en' ? 'Parent' : 'ولي أمر', message: '' });
     }, 1200);
   };
 
@@ -40,15 +49,15 @@ export default function Contact() {
           {/* Left Column: Info Card */}
           <div className="lg:col-span-5">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full text-blue-400 text-xs font-semibold mb-4 uppercase tracking-widest font-mono">
-              Get In Touch
+              {t.contactBadge}
             </div>
             
-            <h2 className="font-display text-4xl sm:text-5xl font-extrabold tracking-tight mb-6 text-white">
-              Connect With Our Global Admissions
+            <h2 className="font-display text-4xl sm:text-5xl font-extrabold tracking-tight mb-6 text-white leading-tight">
+              {t.contactHeading}
             </h2>
             
             <p className="text-slate-400 text-base leading-relaxed mb-10">
-              Have questions regarding curriculum formats, school affiliation schemas, or candidate registrations for the International Junior Coding Championship? Reach out directly. Our response timeline is typically within 12-24 hours.
+              {t.contactDesc}
             </p>
 
             {/* Direct Contact Cards */}
@@ -62,7 +71,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <span className="text-[10px] text-slate-500 font-mono block uppercase tracking-widest">
-                    Direct Email
+                    {t.contactEmailLabel}
                   </span>
                   <span className="text-base font-bold text-white group-hover:text-amber-400 transition-colors">
                     info@technovainternational.com
@@ -81,10 +90,10 @@ export default function Contact() {
                 </div>
                 <div>
                   <span className="text-[10px] text-slate-500 font-mono block uppercase tracking-widest">
-                    Official Support Channel
+                    {t.contactSupportLabel}
                   </span>
                   <span className="text-base font-bold text-white group-hover:text-emerald-400 transition-colors">
-                    TechNova WhatsApp Channel
+                    {t.contactSupportDesc}
                   </span>
                 </div>
               </a>
@@ -95,7 +104,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <span className="text-[10px] text-slate-500 font-mono block uppercase tracking-widest">
-                    Core Portal
+                    {t.contactPortalLabel}
                   </span>
                   <span className="text-base font-bold text-slate-300">
                     technovainternational.com
@@ -110,19 +119,19 @@ export default function Contact() {
             <AnimatePresence mode="wait">
               {!isSubmitted ? (
                 <motion.form
-                  key="contact-form"
+                   key="contact-form"
                   initial={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   onSubmit={handleSubmit}
                   className="space-y-6"
                 >
                   <h3 className="text-2xl font-bold font-display text-white border-b border-slate-900 pb-4">
-                    Send An Inquiry Message
+                    {t.formTitle}
                   </h3>
 
                   <div>
                     <label htmlFor="form-name" className="text-xs font-semibold text-slate-400 uppercase tracking-widest block mb-2">
-                      Your Full Name
+                      {t.formNameLabel}
                     </label>
                     <input
                       id="form-name"
@@ -130,14 +139,14 @@ export default function Contact() {
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="e.g. Dr. Alistair Vance"
+                      placeholder={t.formNamePlaceholder}
                       className="w-full px-5 py-4 bg-slate-900/60 border border-slate-800 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors"
                     />
                   </div>
 
                   <div>
                     <label htmlFor="form-email" className="text-xs font-semibold text-slate-400 uppercase tracking-widest block mb-2">
-                      Your Contact Email
+                      {t.formEmailLabel}
                     </label>
                     <input
                       id="form-email"
@@ -145,14 +154,14 @@ export default function Contact() {
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="e.g. alistair@academy.org"
+                      placeholder={t.formEmailPlaceholder}
                       className="w-full px-5 py-4 bg-slate-900/60 border border-slate-800 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors"
                     />
                   </div>
 
                   <div>
                     <span className="text-xs font-semibold text-slate-400 uppercase tracking-widest block mb-3">
-                      I am registering interest as a:
+                      {t.formRoleLabel}
                     </span>
                     <div className="flex flex-wrap gap-2">
                       {rolesList.map((r) => (
@@ -174,7 +183,7 @@ export default function Contact() {
 
                   <div>
                     <label htmlFor="form-message" className="text-xs font-semibold text-slate-400 uppercase tracking-widest block mb-2">
-                      Describe your enquiry / interest
+                      {t.formMessageLabel}
                     </label>
                     <textarea
                       id="form-message"
@@ -182,7 +191,7 @@ export default function Contact() {
                       rows={4}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Please outline the program names or championship information you require..."
+                      placeholder={t.formMessagePlaceholder}
                       className="w-full px-5 py-4 bg-slate-900/60 border border-slate-800 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors resize-none"
                     />
                   </div>
@@ -193,8 +202,8 @@ export default function Contact() {
                     disabled={isSubmitting}
                     className="w-full py-4 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white font-extrabold rounded-xl transition-all duration-200 shadow-xl flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                   >
-                    <span>{isSubmitting ? 'Sending Request...' : 'Dispatch Inquiry'}</span>
-                    {!isSubmitting && <ArrowRight className="w-5 h-5" />}
+                    <span>{isSubmitting ? t.formSubmitting : t.formSubmitBtn}</span>
+                    {!isSubmitting && <ArrowRight className={`w-5 h-5 ${lang === 'ar' ? 'rotate-180' : ''}`} />}
                   </button>
                 </motion.form>
               ) : (
@@ -210,23 +219,23 @@ export default function Contact() {
                   
                   <div className="space-y-2">
                     <h3 className="text-2xl font-bold font-display text-white">
-                      Inquiry Dispatched Successfully
+                      {t.successHeading}
                     </h3>
                     <p className="text-slate-400 text-sm max-w-md leading-relaxed mx-auto">
-                      Thank you for contacting TechNova International. Our admissions desk has received your request and is compiling the necessary program brochures. Expect contact shortly.
+                      {t.successDesc}
                     </p>
                   </div>
 
                   <div className="flex items-center gap-2 text-xs text-slate-500 bg-slate-900 px-4 py-2 rounded-xl">
                     <ShieldCheck className="w-4 h-4 text-emerald-500" />
-                    <span>Reference ID: TN-2026-{Math.floor(Math.random() * 90000 + 10000)}</span>
+                    <span>{t.successRefLabel}: TN-2026-{Math.floor(Math.random() * 90000 + 10000)}</span>
                   </div>
 
                   <button
                     onClick={() => setIsSubmitted(false)}
                     className="px-6 py-2.5 bg-slate-900 hover:bg-slate-800 border border-slate-800 text-white font-semibold rounded-xl text-xs transition-colors cursor-pointer"
                   >
-                    Send another inquiry
+                    {t.successResetBtn}
                   </button>
                 </motion.div>
               )}

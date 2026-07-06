@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { motion, useInView } from 'motion/react';
 import { ShieldCheck, Trophy, Landmark, Users2, ArrowRight } from 'lucide-react';
+import { Language, translations } from '../translations';
 
 interface CountUpProps {
   end: number;
@@ -48,37 +49,40 @@ function CountUp({ end, duration = 1.5, suffix = '' }: CountUpProps) {
 
 interface WhyChooseProps {
   onRegisterClick: () => void;
+  lang: Language;
 }
 
-export default function WhyChoose({ onRegisterClick }: WhyChooseProps) {
+export default function WhyChoose({ onRegisterClick, lang }: WhyChooseProps) {
+  const t = translations[lang];
+
   const stats = [
     {
       icon: <Users2 className="w-5 h-5 text-blue-400" />,
-      title: 'Students Trained',
+      title: t.statsS1Title,
       target: 1000,
       suffix: '+',
-      desc: 'Nurtured into global technologists, competitive programmers, and future engineering candidates.',
+      desc: t.statsS1Desc,
     },
     {
       icon: <Landmark className="w-5 h-5 text-rose-400" />,
-      title: 'Affiliate Schools',
+      title: t.statsS2Title,
       target: 50,
       suffix: '+',
-      desc: 'Collaborative curriculum integrations across elite international secondary colleges and private campuses.',
+      desc: t.statsS2Desc,
     },
     {
       icon: <Trophy className="w-5 h-5 text-amber-400" />,
-      title: 'Countries Active',
+      title: t.statsS3Title,
       target: 10,
       suffix: '+',
-      desc: 'Delivering world-class technical coaching across multiple time zones and global regions.',
+      desc: t.statsS3Desc,
     },
     {
       icon: <ShieldCheck className="w-5 h-5 text-emerald-400" />,
-      title: 'Student Portfolios',
+      title: t.statsS4Title,
       target: 100,
       suffix: '+',
-      desc: 'Fully realized hardware automation frameworks, machine learning models, and complex application codebases.',
+      desc: t.statsS4Desc,
     },
   ];
 
@@ -94,13 +98,13 @@ export default function WhyChoose({ onRegisterClick }: WhyChooseProps) {
         
         <div className="text-center max-w-3xl mx-auto mb-20">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-amber-500/10 border border-amber-500/20 rounded-full text-amber-400 text-xs font-semibold mb-4 uppercase tracking-widest font-mono">
-            Proven Performance Indicators
+            {t.whyBadge}
           </div>
-          <h2 className="font-display text-4xl sm:text-5xl font-extrabold tracking-tight mb-6 text-white">
-            Why Partner with TechNova?
+          <h2 className="font-display text-4xl sm:text-5xl font-extrabold tracking-tight mb-6 text-white leading-tight">
+            {t.whyHeading}
           </h2>
           <p className="text-slate-400 text-lg leading-relaxed">
-            Our numbers describe our passion. We maintain the highest instructional precision and structural support matrices to maximize student achievements.
+            {t.whyDesc}
           </p>
         </div>
 
@@ -136,13 +140,13 @@ export default function WhyChoose({ onRegisterClick }: WhyChooseProps) {
         <div className="bg-gradient-to-br from-slate-900/40 to-slate-950/60 backdrop-blur-md border border-slate-800/80 rounded-3xl p-8 md:p-12 lg:p-16 flex flex-col lg:flex-row items-center justify-between gap-12">
           <div className="max-w-2xl">
             <span className="text-xs font-bold text-amber-400 uppercase tracking-widest font-mono block mb-3">
-              Official Collaboration Initiative
+              {t.schoolCollabBadge}
             </span>
             <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white mb-4">
-              Bring TechNova to Your School Campus
+              {t.schoolCollabTitle}
             </h3>
             <p className="text-slate-400 text-sm leading-relaxed">
-              We collaborate with forward-thinking school administrators, academic partners, and sponsors worldwide to offer custom-tailored coding labs, teacher coaching, and priority entry to the International Junior Coding Championship (IJCC).
+              {t.schoolCollabDesc}
             </p>
           </div>
 
@@ -150,8 +154,8 @@ export default function WhyChoose({ onRegisterClick }: WhyChooseProps) {
             href="mailto:info@technovainternational.com?subject=School Affiliation and Collaboration Inquiry"
             className="w-full lg:w-auto px-8 py-4 bg-white text-slate-950 hover:bg-slate-100 font-extrabold rounded-2xl shadow-xl hover:shadow-slate-200/5 transition-all duration-200 whitespace-nowrap flex items-center justify-center gap-2 group cursor-pointer"
           >
-            <span>Affiliate with TechNova</span>
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <span>{t.schoolCollabBtn}</span>
+            <ArrowRight className={`w-5 h-5 group-hover:translate-x-1 transition-transform ${lang === 'ar' ? 'rotate-180' : ''}`} />
           </a>
         </div>
 

@@ -1,66 +1,70 @@
 import { motion } from 'motion/react';
 import { Terminal, Brain, Construction, Atom, Workflow, Trophy, Calendar, Sparkles } from 'lucide-react';
+import { Language, translations } from '../translations';
 
 interface ProgramsProps {
   onRegisterClick: () => void;
+  lang: Language;
 }
 
-export default function Programs({ onRegisterClick }: ProgramsProps) {
+export default function Programs({ onRegisterClick, lang }: ProgramsProps) {
+  const t = translations[lang];
+
   const programsList = [
     {
       icon: <Terminal className="w-6 h-6 text-blue-400" />,
-      title: 'Advanced Computer Science',
-      category: 'Coding & Algorithmic Design',
-      desc: 'An intensive curriculum tracking Python, data structures, algorithm optimization, and full-stack software development projects.',
-      duration: '12 Weeks',
-      level: 'Ages 10-18',
+      title: t.prog1Title,
+      category: t.prog1Category,
+      desc: t.prog1Desc,
+      duration: t.prog1Duration,
+      level: t.prog1Level,
       color: 'from-blue-500/20 to-indigo-500/10 border-blue-500/30',
     },
     {
       icon: <Brain className="w-6 h-6 text-amber-400" />,
-      title: 'Applied AI & Neural Networks',
-      category: 'Artificial Intelligence',
-      desc: 'Exploring machine learning, natural language processing models, visual classification algorithms, and ethical AI development frameworks.',
-      duration: '10 Weeks',
-      level: 'Ages 12-18',
+      title: t.prog2Title,
+      category: t.prog2Category,
+      desc: t.prog2Desc,
+      duration: t.prog2Duration,
+      level: t.prog2Level,
       color: 'from-amber-500/20 to-orange-500/10 border-amber-500/30',
     },
     {
       icon: <Construction className="w-6 h-6 text-rose-400" />,
-      title: 'Robotics Engineering Labs',
-      category: 'Hardware & Control Systems',
-      desc: 'Building autonomous navigation rovers, implementing C/C++ firmware, integrating sensory arrays, and engineering kinematic gears.',
-      duration: '16 Weeks',
-      level: 'Ages 9-17',
+      title: t.prog3Title,
+      category: t.prog3Category,
+      desc: t.prog3Desc,
+      duration: t.prog3Duration,
+      level: t.prog3Level,
       color: 'from-rose-500/20 to-red-500/10 border-rose-500/30',
     },
     {
       icon: <Atom className="w-6 h-6 text-emerald-400" />,
-      title: 'Global STEM Foundations',
-      category: 'Physics & Applied Mathematics',
-      desc: 'Connecting scientific calculations, aerodynamic concepts, and mathematics with practical coding models and research experiments.',
-      duration: '8 Weeks',
-      level: 'Ages 8-15',
+      title: t.prog4Title,
+      category: t.prog4Category,
+      desc: t.prog4Desc,
+      duration: t.prog4Duration,
+      level: t.prog4Level,
       color: 'from-emerald-500/20 to-teal-500/10 border-emerald-500/30',
     },
     {
       icon: <Workflow className="w-6 h-6 text-purple-400" />,
-      title: 'Creative Innovation Lab',
-      category: 'Design-Thinking & Pitching',
-      desc: 'Incubating startup tech products from ideation to pitching, focusing on market fit, UI/UX mockups, and public presentation skills.',
-      duration: '6 Weeks',
-      level: 'Ages 11-18',
+      title: t.prog5Title,
+      category: t.prog5Category,
+      desc: t.prog5Desc,
+      duration: t.prog5Duration,
+      level: t.prog5Level,
       color: 'from-purple-500/20 to-pink-500/10 border-purple-500/30',
     },
     {
       icon: <Trophy className="w-6 h-6 text-gold-400" />,
-      title: 'Championship Preparation Track',
-      category: 'International Competitions',
-      desc: 'Elite training for international platforms. Simulating olympiad coding rounds, hackathons, robotics duels, and presentation panels.',
-      duration: 'Continuous',
-      level: 'By Invitation',
+      title: t.prog6Title,
+      category: t.prog6Category,
+      desc: t.prog6Desc,
+      duration: t.prog6Duration,
+      level: t.prog6Level,
       color: 'from-amber-500/35 to-yellow-500/10 border-amber-500/50',
-      badge: 'Championship Focus',
+      badge: t.prog6Badge,
     },
   ];
 
@@ -77,13 +81,13 @@ export default function Programs({ onRegisterClick }: ProgramsProps) {
       <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full text-blue-400 text-xs font-semibold mb-4 uppercase tracking-widest font-mono">
-            Professional Curriculums
+            {t.progBadge}
           </div>
-          <h2 className="font-display text-4xl sm:text-5xl font-extrabold tracking-tight mb-6 text-white">
-            Specialized Educational Tracks
+          <h2 className="font-display text-4xl sm:text-5xl font-extrabold tracking-tight mb-6 text-white leading-tight">
+            {t.progHeading}
           </h2>
           <p className="text-slate-400 text-lg leading-relaxed">
-            Every curriculum is formulated by leading industry engineers and seasoned academics to match global engineering and creative benchmarks.
+            {t.progDesc}
           </p>
         </div>
 
@@ -142,8 +146,8 @@ export default function Programs({ onRegisterClick }: ProgramsProps) {
                   href="mailto:info@technovainternational.com?subject=Inquiry about TechNova Programs"
                   className="w-full py-3 bg-slate-950 hover:bg-white text-slate-400 hover:text-slate-950 font-bold rounded-2xl text-xs border border-slate-800 hover:border-white transition-all duration-300 flex items-center justify-center gap-2 group/btn cursor-pointer"
                 >
-                  <span>Inquire Program details</span>
-                  <span className="group-hover/btn:translate-x-1 transition-transform">→</span>
+                  <span>{t.progInquireBtn}</span>
+                  <span className={`group-hover/btn:translate-x-1 transition-transform ${lang === 'ar' ? 'rotate-180' : ''}`}>→</span>
                 </a>
               </div>
             </motion.div>
@@ -152,12 +156,12 @@ export default function Programs({ onRegisterClick }: ProgramsProps) {
 
         <div className="mt-16 text-center">
           <p className="text-slate-500 text-sm">
-            Not sure which track is best for your student?{' '}
+            {t.progAdmissionsHelp}{' '}
             <a
               href="mailto:info@technovainternational.com?subject=Consultation with Admissions Panel"
               className="text-amber-400 hover:text-amber-300 font-semibold underline underline-offset-4 cursor-pointer"
             >
-              Consult with our Admissions Panel
+              {t.progConsultBtn}
             </a>
           </p>
         </div>

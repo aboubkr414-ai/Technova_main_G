@@ -1,43 +1,50 @@
 import { motion } from 'motion/react';
 import { Code2, BrainCircuit, Cpu, Sparkles, Trophy, Globe } from 'lucide-react';
+import { Language, translations } from '../translations';
 
-export default function About() {
+interface AboutProps {
+  lang: Language;
+}
+
+export default function About({ lang }: AboutProps) {
+  const t = translations[lang];
+
   const pillars = [
     {
       icon: <Code2 className="w-6 h-6 text-blue-400" />,
-      title: 'Advanced Coding',
-      desc: 'Mastery over industrial programming languages including Python, JavaScript, and C++, focusing on programmatic logic, design patterns, and application engineering.',
-      badge: 'Logic & Architecture',
+      title: t.pillar1Title,
+      desc: t.pillar1Desc,
+      badge: t.pillar1Badge,
     },
     {
       icon: <BrainCircuit className="w-6 h-6 text-amber-400" />,
-      title: 'Artificial Intelligence',
-      desc: 'Hands-on training with Neural Networks, Large Language Models (LLMs), Machine Learning pipelines, and intelligent system integrations.',
-      badge: 'State-of-the-Art',
+      title: t.pillar2Title,
+      desc: t.pillar2Desc,
+      badge: t.pillar2Badge,
     },
     {
       icon: <Cpu className="w-6 h-6 text-rose-400" />,
-      title: 'Robotics Engineering',
-      desc: 'Designing physical systems, autonomous navigation firmware, micro-controller interfaces, and mechanical automation platforms.',
-      badge: 'Hardware Automation',
+      title: t.pillar3Title,
+      desc: t.pillar3Desc,
+      badge: t.pillar3Badge,
     },
     {
       icon: <Sparkles className="w-6 h-6 text-purple-400" />,
-      title: 'Innovation Workshops',
-      desc: 'Fostering design-thinking processes and creative engineering methods to prototype actionable solutions for contemporary problems.',
-      badge: 'Design Thinking',
+      title: t.pillar4Title,
+      desc: t.pillar4Desc,
+      badge: t.pillar4Badge,
     },
     {
       icon: <Trophy className="w-6 h-6 text-yellow-400" />,
-      title: 'Future Skills',
-      desc: 'Cultivating highly-demanded capabilities like critical reasoning, computational analysis, leadership, and professional presentation.',
-      badge: 'Career Readiness',
+      title: t.pillar5Title,
+      desc: t.pillar5Desc,
+      badge: t.pillar5Badge,
     },
     {
       icon: <Globe className="w-6 h-6 text-emerald-400" />,
-      title: 'Global Opportunities',
-      desc: 'Opening pathways for international championships, research programs, academic scholarships, and high-value technical internships.',
-      badge: 'Global Mobility',
+      title: t.pillar6Title,
+      desc: t.pillar6Desc,
+      badge: t.pillar6Badge,
     },
   ];
 
@@ -51,18 +58,18 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
           <div className="lg:col-span-6">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-amber-500/10 border border-amber-500/20 rounded-full text-amber-400 text-xs font-semibold mb-4 uppercase tracking-widest font-mono">
-              About TechNova
+              {t.aboutBadge}
             </div>
-            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-6 text-white">
-              Cultivating the World's Next Tech Leaders.
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-6 text-white leading-tight">
+              {t.aboutHeading}
             </h2>
           </div>
           <div className="lg:col-span-6">
             <p className="text-slate-400 text-lg leading-relaxed mb-6">
-              TechNova International stands at the forefront of global STEM education. We bridging the gap between standard school curricula and modern enterprise requirements, delivering rigorous, hands-on, and highly creative learning pathways.
+              {t.aboutDesc1}
             </p>
             <p className="text-slate-400 text-lg leading-relaxed">
-              Our mission is to inspire, train, and accelerate students through intensive programs in <strong className="text-white">Coding</strong>, <strong className="text-white">AI</strong>, <strong className="text-white">Robotics</strong>, and <strong className="text-white">Competitive Intelligence</strong>, enabling them to lead projects that change the world.
+              {t.aboutDesc2}
             </p>
           </div>
         </div>
@@ -96,8 +103,8 @@ export default function About() {
               </div>
 
               <div className="mt-8 pt-6 border-t border-slate-800/60 flex items-center justify-between text-xs font-semibold text-slate-500 group-hover:text-white transition-colors">
-                <span className="font-mono text-[10px] uppercase tracking-widest">TechNova Core Pillar</span>
-                <span className="text-amber-500 group-hover:translate-x-1 transition-transform">→</span>
+                <span className="font-mono text-[10px] uppercase tracking-widest">{t.pillarCoreLabel}</span>
+                <span className={`text-amber-500 group-hover:translate-x-1 transition-transform ${lang === 'ar' ? 'rotate-180' : ''}`}>→</span>
               </div>
             </motion.div>
           ))}

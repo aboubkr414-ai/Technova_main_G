@@ -1,38 +1,26 @@
 import { ShieldCheck } from 'lucide-react';
+import { Language, translations } from '../translations';
 
-export default function Footer() {
+interface FooterProps {
+  lang: Language;
+}
+
+export default function Footer({ lang }: FooterProps) {
+  const t = translations[lang];
   const currentYear = new Date().getFullYear();
 
   const sections = [
     {
-      title: 'Global Programs',
-      links: [
-        { name: 'Computer Science Core', href: '#programs' },
-        { name: 'Applied AI & Networks', href: '#programs' },
-        { name: 'Robotics Engineering', href: '#programs' },
-        { name: 'Global STEM Fundamentals', href: '#programs' },
-        { name: 'Creative Innovation Labs', href: '#programs' },
-      ],
+      title: t.secPrograms,
+      links: t.linksPrograms,
     },
     {
-      title: 'Championship (IJCC)',
-      links: [
-        { name: 'About IJCC 2026', href: '#ijcc' },
-        { name: 'National Selection Rounds', href: '#ijcc' },
-        { name: 'Championship Guidelines', href: '#ijcc' },
-        { name: 'Awards & Scholarships', href: '#ijcc' },
-        { name: 'Previous Winners Portfolio', href: '#ijcc' },
-      ],
+      title: t.secChampionship,
+      links: t.linksChampionship,
     },
     {
-      title: 'Organization Links',
-      links: [
-        { name: 'About Our Mission', href: '#about' },
-        { name: 'Board of Governors', href: '#about' },
-        { name: 'Research Affiliations', href: '#about' },
-        { name: 'Academic Partners', href: '#why-choose' },
-        { name: 'Global Impact Summary', href: '#why-choose' },
-      ],
+      title: t.secOrganization,
+      links: t.linksOrganization,
     },
   ];
 
@@ -54,21 +42,21 @@ export default function Footer() {
               </div>
               <div className="flex flex-col">
                 <span className="font-display text-lg font-bold tracking-tight text-white">
-                  TechNova <span className="text-amber-400 font-normal">International</span>
+                  {t.brandName} <span className="text-amber-400 font-normal">{t.brandSuffix}</span>
                 </span>
                 <span className="text-[10px] text-slate-500 font-mono tracking-widest uppercase -mt-0.5">
-                  Global Education
+                  {t.globalEducation}
                 </span>
               </div>
             </div>
 
             <p className="text-slate-500 text-sm max-w-sm leading-relaxed mt-2">
-              Empowering the Next Generation of Innovators through world-class Computer Science, Artificial Intelligence, Robotics, and International Competitive programs.
+              {t.footerDesc}
             </p>
 
             <div className="flex items-center gap-2 text-xs text-slate-600">
               <ShieldCheck className="w-4 h-4 text-emerald-600" />
-              <span>ISO 9001:2015 Accredited Organization</span>
+              <span>{t.footerAccredited}</span>
             </div>
           </div>
 
@@ -100,13 +88,13 @@ export default function Footer() {
         {/* Lower section (Copyright & Regulations) */}
         <div className="pt-10 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-slate-600 font-mono">
           <div>
-            <span>© {currentYear} TechNova International Educational Trust. All Rights Reserved.</span>
+            <span>© {currentYear} {t.footerCopyright}</span>
           </div>
 
           <div className="flex items-center gap-6">
-            <a href="#about" className="hover:text-slate-400 transition-colors">Privacy Charter</a>
-            <a href="#about" className="hover:text-slate-400 transition-colors">Affiliate Terms</a>
-            <a href="#contact" className="hover:text-slate-400 transition-colors">Support Portal</a>
+            <a href="#about" className="hover:text-slate-400 transition-colors">{t.footerPrivacy}</a>
+            <a href="#about" className="hover:text-slate-400 transition-colors">{t.footerTerms}</a>
+            <a href="#contact" className="hover:text-slate-400 transition-colors">{t.footerSupport}</a>
           </div>
         </div>
 

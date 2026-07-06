@@ -1,12 +1,17 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Calendar, Users, FileCheck, Trophy, Sparkles, ArrowRight, Hourglass } from 'lucide-react';
+import { Language, translations } from '../translations';
 
 interface CompetitionProps {
   onRegisterClick: () => void;
+  lang: Language;
+  onPageChange: (page: 'home' | 'championship') => void;
 }
 
-export default function Competition({ onRegisterClick }: CompetitionProps) {
+export default function Competition({ onRegisterClick, lang, onPageChange }: CompetitionProps) {
+  const t = translations[lang];
+
   // Target date: August 31, 2026 (Registration deadline)
   const targetDate = new Date('2026-08-31T23:59:59').getTime();
 
@@ -41,44 +46,44 @@ export default function Competition({ onRegisterClick }: CompetitionProps) {
   const competitionHighlights = [
     {
       icon: <Users className="w-6 h-6 text-blue-400" />,
-      title: 'Global Eligibility',
-      desc: 'Open to students aged 7 to 17 from all countries. Compete on a global stage with worldwide recognition.',
+      title: t.hl1Title,
+      desc: t.hl1Desc,
     },
     {
       icon: <Hourglass className="w-6 h-6 text-amber-400" />,
-      title: 'Competitive Coding',
-      desc: 'Evaluate machine learning pipelines, prompt-engineering challenges, structural codebases, and hardware automation systems.',
+      title: t.hl2Title,
+      desc: t.hl2Desc,
     },
     {
       icon: <FileCheck className="w-6 h-6 text-emerald-400" />,
-      title: 'Global Recognition',
-      desc: 'Earn high-prestige, internationally accredited certificates validating your technical achievements with partners.',
+      title: t.hl3Title,
+      desc: t.hl3Desc,
     },
     {
       icon: <Trophy className="w-6 h-6 text-gold-400" />,
-      title: 'Incentive & Pathways',
-      desc: 'Win large cash prizes, academic scholarships, and real technical internship opportunities with elite global organizations.',
+      title: t.hl4Title,
+      desc: t.hl4Desc,
     },
   ];
 
   const timelineStages = [
     {
-      stage: 'Stage 01',
-      title: 'Registration Deadline',
-      date: '31st August 2026',
-      desc: 'Final date to submit application profiles and secure eligibility slots through official Google Form and portals.',
+      stage: t.stg1Stage,
+      title: t.stg1Title,
+      date: t.stg1Date,
+      desc: t.stg1Desc,
     },
     {
-      stage: 'Stage 02',
-      title: 'Qualifier Round',
-      date: '15th November 2026',
-      desc: 'Intense algorithmic challenge matrices, real-time code optimization rounds, and localized online evaluation boards.',
+      stage: t.stg2Stage,
+      title: t.stg2Title,
+      date: t.stg2Date,
+      desc: t.stg2Desc,
     },
     {
-      stage: 'Stage 03',
-      title: 'Final Project Submission',
-      date: '31st December 2026',
-      desc: 'Final submission deadline for validated codebases, physical control rigs, and presentation recordings.',
+      stage: t.stg3Stage,
+      title: t.stg3Title,
+      date: t.stg3Date,
+      desc: t.stg3Desc,
     },
   ];
 
@@ -94,16 +99,16 @@ export default function Competition({ onRegisterClick }: CompetitionProps) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
           <div className="lg:col-span-7">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-amber-500/10 border border-amber-500/20 rounded-full text-amber-400 text-xs font-semibold mb-4 uppercase tracking-widest font-mono">
-              The Flagship Event
+              {t.compBadge}
             </div>
-            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-6 text-white">
-              International Junior Coding Championship 2026
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-6 text-white leading-tight">
+              {t.compHeading}
             </h2>
             <p className="text-slate-400 text-lg leading-relaxed mb-6">
-              The IJCC is the world’s premier competitive technical stage for students aged 7 to 17 from all countries. Supported by elite global software corporations, the championship challenges young innovators to engineer, iterate, and present high-performance software projects.
+              {t.compDesc1}
             </p>
             <p className="text-slate-400 text-lg leading-relaxed">
-              Unlock extraordinary opportunities including direct cash prizes, educational scholarships, tech internship opportunities, and official certified credentials with true global recognition. Join thousands of young leaders from across the globe in rewriting the future of AI, coding, and robotics.
+              {t.compDesc2}
             </p>
           </div>
 
@@ -112,11 +117,11 @@ export default function Competition({ onRegisterClick }: CompetitionProps) {
             <div className="bg-slate-900/40 backdrop-blur-md border border-slate-800 rounded-3xl p-8 relative shadow-2xl">
               <div className="absolute -top-3 -right-3 bg-amber-500 text-slate-950 px-3 py-1 text-[10px] font-black uppercase tracking-widest rounded-lg flex items-center gap-1">
                 <Sparkles className="w-3 h-3 animate-spin" />
-                <span>Registrations Open</span>
+                <span>{t.registrationsOpen}</span>
               </div>
               
               <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-widest font-mono mb-6 text-center">
-                Countdown to Kickoff
+                {t.compCountdownHeader}
               </h4>
 
               <div className="grid grid-cols-4 gap-3 text-center mb-8">
@@ -124,31 +129,31 @@ export default function Competition({ onRegisterClick }: CompetitionProps) {
                   <div className="text-3xl md:text-4xl font-extrabold font-display text-white">
                     {String(timeLeft.days).padStart(2, '0')}
                   </div>
-                  <div className="text-[10px] text-slate-500 uppercase tracking-wider font-mono mt-1">Days</div>
+                  <div className="text-[10px] text-slate-500 uppercase tracking-wider font-mono mt-1">{t.days}</div>
                 </div>
                 <div className="bg-slate-950 border border-slate-800/80 p-3 rounded-2xl">
                   <div className="text-3xl md:text-4xl font-extrabold font-display text-white">
                     {String(timeLeft.hours).padStart(2, '0')}
                   </div>
-                  <div className="text-[10px] text-slate-500 uppercase tracking-wider font-mono mt-1">Hrs</div>
+                  <div className="text-[10px] text-slate-500 uppercase tracking-wider font-mono mt-1">{t.hours}</div>
                 </div>
                 <div className="bg-slate-950 border border-slate-800/80 p-3 rounded-2xl">
                   <div className="text-3xl md:text-4xl font-extrabold font-display text-white">
                     {String(timeLeft.minutes).padStart(2, '0')}
                   </div>
-                  <div className="text-[10px] text-slate-500 uppercase tracking-wider font-mono mt-1">Mins</div>
+                  <div className="text-[10px] text-slate-500 uppercase tracking-wider font-mono mt-1">{t.minutes}</div>
                 </div>
                 <div className="bg-slate-950 border border-slate-800/80 p-3 rounded-2xl text-amber-400">
                   <div className="text-3xl md:text-4xl font-extrabold font-display">
                     {String(timeLeft.seconds).padStart(2, '0')}
                   </div>
-                  <div className="text-[10px] text-amber-500 uppercase tracking-wider font-mono mt-1">Secs</div>
+                  <div className="text-[10px] text-amber-500 uppercase tracking-wider font-mono mt-1">{t.seconds}</div>
                 </div>
               </div>
 
-              <div className="flex items-center gap-3 text-xs text-slate-500 justify-center mb-6 border-b border-slate-800 pb-6">
-                <Calendar className="w-4 h-4 text-slate-400" />
-                <span>Deadline: August 31, 2026 • Registration is Global & Online</span>
+              <div className="flex items-center gap-3 text-xs text-slate-500 justify-center mb-6 border-b border-slate-800 pb-6 text-center">
+                <Calendar className="w-4 h-4 text-slate-400 shrink-0" />
+                <span>{t.compCountdownSub}</span>
               </div>
 
               <a
@@ -157,9 +162,20 @@ export default function Competition({ onRegisterClick }: CompetitionProps) {
                 rel="noopener noreferrer"
                 className="w-full py-4 bg-white hover:bg-slate-100 text-slate-950 font-extrabold rounded-2xl shadow-lg transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2 group/btn cursor-pointer"
               >
-                <span>Pre-Register Now</span>
-                <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
+                <span>{t.preRegisterNow}</span>
+                <ArrowRight className={`w-5 h-5 group-hover/btn:translate-x-1 transition-transform ${lang === 'ar' ? 'rotate-180' : ''}`} />
               </a>
+
+              <button
+                onClick={() => {
+                  onPageChange('championship');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                className="w-full mt-3 py-3 bg-slate-950 hover:bg-slate-900 border border-slate-800 text-amber-400 hover:text-amber-300 font-bold rounded-2xl transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer text-xs uppercase tracking-wider font-mono"
+              >
+                <span>{lang === 'en' ? 'View Detailed Championship Info' : 'عرض تفاصيل ومعلومات البطولة بالكامل'}</span>
+                <ArrowRight className={`w-3.5 h-3.5 ${lang === 'ar' ? 'rotate-180' : ''}`} />
+              </button>
             </div>
           </div>
         </div>
@@ -187,7 +203,7 @@ export default function Competition({ onRegisterClick }: CompetitionProps) {
         {/* Timeline Horizontal / Vertical */}
         <div className="border border-slate-800 rounded-3xl p-8 lg:p-12 bg-slate-950/50 backdrop-blur-md">
           <h4 className="text-xl font-bold mb-10 font-display text-white text-center">
-            The Championship Roadmap
+            {t.roadmapTitle}
           </h4>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 relative">
