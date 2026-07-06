@@ -18,6 +18,12 @@ import {
 } from 'lucide-react';
 import { Language, translations } from '../translations';
 
+// Import images statically so Vite resolves and bundles them correctly in production
+import blueBrochure from '../assets/images/brochure_english_blue_1783362443667.jpg';
+import darkOrangeBrochure from '../assets/images/brochure_english_dark_1783362457228.jpg';
+import lightTealBrochure from '../assets/images/brochure_english_light_1783362466721.jpg';
+import arabicTealBrochure from '../assets/images/brochure_arabic_teal_1783362479362.jpg';
+
 // Using exact replicas of the user-provided brochures dynamically in activeTab tabs
 
 interface ChampionshipPromoProps {
@@ -108,10 +114,10 @@ export default function ChampionshipPromo({ lang, onRegisterClick }: Championshi
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/20 z-10" />
                   <img 
                     src={
-                      activeTab === 'blue' ? '/src/assets/images/brochure_english_blue_1783362443667.jpg' :
-                      activeTab === 'orange' ? '/src/assets/images/brochure_english_dark_1783362457228.jpg' :
-                      activeTab === 'teal' ? '/src/assets/images/brochure_english_light_1783362466721.jpg' :
-                      '/src/assets/images/brochure_arabic_teal_1783362479362.jpg'
+                      activeTab === 'blue' ? blueBrochure :
+                      activeTab === 'orange' ? darkOrangeBrochure :
+                      activeTab === 'teal' ? lightTealBrochure :
+                      arabicTealBrochure
                     } 
                     alt="Championship Advertisement Poster"
                     className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700 pointer-events-none"

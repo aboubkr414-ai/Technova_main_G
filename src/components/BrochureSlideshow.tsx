@@ -16,6 +16,13 @@ import {
 } from 'lucide-react';
 import { Language, translations } from '../translations';
 
+// Import images statically so Vite resolves and bundles them correctly in production
+import blueBrochure from '../assets/images/brochure_english_blue_1783362443667.jpg';
+import darkOrangeBrochure from '../assets/images/brochure_english_dark_1783362457228.jpg';
+import lightTealBrochure from '../assets/images/brochure_english_light_1783362466721.jpg';
+import arabicTealBrochure from '../assets/images/brochure_arabic_teal_1783362479362.jpg';
+import arabicPurpleBrochure from '../assets/images/brochure_arabic_purple_1783362488399.jpg';
+
 // Asset paths for the generated brochures (using exact replicas of the user-provided brochures)
 const BROCHURES = [
   {
@@ -24,7 +31,7 @@ const BROCHURES = [
     titleAr: 'الحملة الإعلانية الرئيسية (الانجليزية)',
     descEn: 'The flagship blue campaign poster outlining competition categories A-D, cash prizes, registration schedule, official website links, and the critical security warning.',
     descAr: 'الملصق الأزرق الرئيسي الذي يوضح فئات المسابقة من A إلى D، والجوائز النقدية، والجدول الزمني للتسجيل، والروابط الرسمية، وتنبيه الحماية.',
-    image: '/src/assets/images/brochure_english_blue_1783362443667.jpg',
+    image: blueBrochure,
     color: 'from-blue-600 to-indigo-600',
     tag: 'Flagship Edition'
   },
@@ -34,7 +41,7 @@ const BROCHURES = [
     titleAr: 'إصدار حملة برتقالي غامق (الإنجليزية)',
     descEn: 'A dark, high-contrast alternative brochure with electric accents, showcasing registration info, qualifier round schedules, and curriculum details.',
     descAr: 'نسخة داكنة عالية التباين بألوان برتقالية متوهجة، تعرض تفاصيل الجولات التأهيلية، وفئات التقديم للطلاب وأكواد الـ QR.',
-    image: '/src/assets/images/brochure_english_dark_1783362457228.jpg',
+    image: darkOrangeBrochure,
     color: 'from-amber-600 to-orange-600',
     tag: 'Dark Orange Edition'
   },
@@ -44,7 +51,7 @@ const BROCHURES = [
     titleAr: 'إصدار ألوان فاتحة حديث (الإنجليزية)',
     descEn: 'A beautiful white brochure with emerald-teal accents, perfect for STEM academies, explaining the 100% free registration policy and schedule details.',
     descAr: 'منشور رائع باللون الأبيض وتأثيرات اللون الأخضر والزمردي، يوضح شروط المشاركة المجانية تماماً وجدول المواعيد والروابط المباشرة.',
-    image: '/src/assets/images/brochure_english_light_1783362466721.jpg',
+    image: lightTealBrochure,
     color: 'from-teal-600 to-emerald-600',
     tag: 'Light Teal Edition'
   },
@@ -54,7 +61,7 @@ const BROCHURES = [
     titleAr: 'المنشور الرسمي المعتمد بالعربية - باللون التركواز',
     descEn: 'Our fully translated official Arabic brochure, highlighting competition details, schedule timeline, and secure contact links for Arabic speaking countries.',
     descAr: 'النسخة الرسمية العربية المترجمة بالكامل، وتوضح تفاصيل الفئات الأربعة والجدول الزمني وجوائز البطولة مع التنبيه الأمني لمنع عمليات الاحتيال.',
-    image: '/src/assets/images/brochure_arabic_teal_1783362479362.jpg',
+    image: arabicTealBrochure,
     color: 'from-emerald-600 to-teal-600',
     tag: 'Arabic Teal'
   },
@@ -64,7 +71,7 @@ const BROCHURES = [
     titleAr: 'المنشور الرسمي المعتمد بالعربية - باللون البنفسجي',
     descEn: 'An aesthetic Arabic campaign flyer variant with premium violet accents, including official QR codes, TNI trust details, and free enrollment badges.',
     descAr: 'إصدار عربي مميز بلمسات اللون البنفسجي والبنفسجي الفاتح، يشمل رموز الاستجابة السريعة (QR) وتفاصيل تكنونوفا الدولية والاشتراك المجاني.',
-    image: '/src/assets/images/brochure_arabic_purple_1783362488399.jpg',
+    image: arabicPurpleBrochure,
     color: 'from-purple-600 to-rose-600',
     tag: 'Arabic Purple'
   }
