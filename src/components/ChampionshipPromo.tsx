@@ -43,7 +43,7 @@ export default function ChampionshipPromo({ lang, onRegisterClick }: Championshi
   ];
 
   return (
-    <section id="advertisements" className="py-24 bg-[#050b1a] relative overflow-hidden">
+    <section id="advertisements" className="py-24 bg-slate-50 dark:bg-[#050b1a] border-y border-slate-200 dark:border-slate-900/60 relative overflow-hidden">
       {/* Absolute ambient lights (Matching our premium cosmic style) */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-600/5 rounded-full blur-[180px] pointer-events-none z-0" />
       <div className="absolute top-10 right-10 w-96 h-96 bg-amber-500/5 rounded-full blur-[140px] pointer-events-none z-0" />
@@ -53,14 +53,14 @@ export default function ChampionshipPromo({ lang, onRegisterClick }: Championshi
         
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="inline-flex items-center gap-2 px-3 py-1 bg-amber-500/10 border border-amber-500/20 rounded-full text-amber-400 text-xs font-mono uppercase tracking-widest">
+          <span className="inline-flex items-center gap-2 px-3 py-1 bg-amber-500/10 border border-amber-500/20 rounded-full text-amber-500 dark:text-amber-400 text-xs font-mono uppercase tracking-widest">
             <Sparkles className="w-3.5 h-3.5" />
             {lang === 'en' ? 'Official Media & Advertisements' : 'المنشورات والإعلانات الرسمية للبطولة'}
           </span>
-          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white font-display">
+          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white font-display">
             {lang === 'en' ? 'Official Championship Flyers' : 'منشورات وملصقات البطولة الرسمية'}
           </h2>
-          <p className="text-slate-400 text-sm md:text-base leading-relaxed">
+          <p className="text-slate-600 dark:text-slate-400 text-sm md:text-base leading-relaxed">
             {lang === 'en' 
               ? 'Explore the high-fidelity replicas of our official campaign advertisements. These materials are distributed globally across participating schools, STEM academies, and parent-teacher boards.'
               : 'استكشف النسخ عالية الدقة من الملصقات الإعلانية الرسمية لحملتنا. يتم توزيع هذه المواد عالمياً عبر المدارس المشاركة، وأكاديميات العلوم والتكنولوجيا، ومجالس أولياء الأمور.'}
@@ -76,7 +76,7 @@ export default function ChampionshipPromo({ lang, onRegisterClick }: Championshi
               className={`px-5 py-3 rounded-2xl font-bold text-xs uppercase tracking-wider font-mono border transition-all duration-200 cursor-pointer ${
                 activeTab === tab.id
                   ? 'bg-gradient-to-r from-blue-600 to-amber-500 border-transparent text-white shadow-lg shadow-blue-500/20'
-                  : 'bg-slate-900/50 border-slate-800 text-slate-400 hover:text-white hover:border-slate-700'
+                  : 'bg-slate-100 dark:bg-slate-900/50 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:border-slate-300 dark:hover:border-slate-700'
               }`}
             >
               {tab.name}
@@ -342,15 +342,15 @@ export default function ChampionshipPromo({ lang, onRegisterClick }: Championshi
           <div className="xl:col-span-4 space-y-6">
             
             {/* Quick Promo Card */}
-            <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 relative overflow-hidden space-y-5">
+            <div className="bg-white/60 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 relative overflow-hidden space-y-5">
               <div className="absolute top-0 right-0 w-24 h-24 bg-amber-500/5 rounded-full blur-2xl pointer-events-none" />
               
               <div className="flex items-center gap-3">
                 <div className="p-3 bg-blue-500/10 border border-blue-500/20 rounded-xl">
-                  <QrCode className="w-5 h-5 text-blue-400" />
+                  <QrCode className="w-5 h-5 text-blue-500 dark:text-blue-400" />
                 </div>
                 <div>
-                  <h4 className="font-extrabold text-white text-base">
+                  <h4 className="font-extrabold text-slate-900 dark:text-white text-base">
                     {lang === 'en' ? 'Direct Application Links' : 'روابط التقديم والاتصال المباشرة'}
                   </h4>
                   <p className="text-slate-500 text-xs">
@@ -364,7 +364,7 @@ export default function ChampionshipPromo({ lang, onRegisterClick }: Championshi
                   href={GOOGLE_FORM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full p-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-2xl transition-all duration-200 flex items-center justify-between group cursor-pointer text-sm"
+                  className="w-full p-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-2xl transition-all duration-200 flex items-center justify-between group cursor-pointer text-sm animate-pulse"
                 >
                   <div className="flex items-center gap-3">
                     <FileText className="w-5 h-5 text-blue-200" />
@@ -389,23 +389,23 @@ export default function ChampionshipPromo({ lang, onRegisterClick }: Championshi
             </div>
 
             {/* Campaign Poster Card Advertisement */}
-            <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 relative overflow-hidden space-y-4">
-              <h4 className="font-extrabold text-white text-base flex items-center gap-2">
-                <Trophy className="w-5 h-5 text-amber-400" />
+            <div className="bg-white/60 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 relative overflow-hidden space-y-4">
+              <h4 className="font-extrabold text-slate-900 dark:text-white text-base flex items-center gap-2">
+                <Trophy className="w-5 h-5 text-amber-500 dark:text-amber-400" />
                 <span>{lang === 'en' ? 'Ad Campaign Details' : 'تفاصيل الحملة الإعلانية'}</span>
               </h4>
-              <p className="text-slate-400 text-xs leading-relaxed">
+              <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
                 {lang === 'en' 
                   ? 'Our promotional posters are ISO 9001:2015 accredited materials for educational outreach. You can share these flyers in your classrooms, schools, and community networks to help kids discover competitive coding.'
                   : 'منشوراتنا الإعلانية هي مواد معتمدة من الأيزو ISO 9001:2015 للتوعية التعليمية. يمكنك مشاركة هذه المنشورات في فصولك الدراسية ومدارسك وشبكاتك المجتمعية لمساعدة الأطفال على اكتشاف البرمجة التنافسية.'}
               </p>
 
-              <div className="p-4 bg-slate-950/80 border border-slate-800 rounded-2xl text-xs space-y-2.5">
-                <div className="flex items-center gap-2 text-emerald-400 font-bold">
+              <div className="p-4 bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 rounded-2xl text-xs space-y-2.5">
+                <div className="flex items-center gap-2 text-emerald-500 dark:text-emerald-400 font-bold">
                   <CheckCircle2 className="w-4 h-4 shrink-0" />
                   <span>{lang === 'en' ? 'Accredited STEM Event' : 'حدث معتمد علمياً وتكنولوجياً'}</span>
                 </div>
-                <div className="text-slate-500 leading-normal text-[11px]">
+                <div className="text-slate-500 dark:text-slate-400 leading-normal text-[11px]">
                   {lang === 'en'
                     ? 'Registration, guidelines, and qualifier submissions are 100% free of charge. Selected grand finalists receive exclusive fully-funded certificates and awards.'
                     : 'التسجيل والإرشادات وتقديمات التصفيات مجانية بنسبة 100%. يحصل المتأهلون النهائيون المختارون على شهادات وجوائز ممولة بالكامل.'}
@@ -426,7 +426,7 @@ export default function ChampionshipPromo({ lang, onRegisterClick }: Championshi
                     alert(lang === 'en' ? 'Championship link copied to clipboard!' : 'تم نسخ رابط البطولة إلى الحافظة!');
                   }
                 }}
-                className="w-full py-3 bg-slate-950 hover:bg-slate-850 border border-slate-800 hover:border-slate-700 text-slate-300 font-semibold rounded-2xl transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer text-xs uppercase tracking-wider font-mono"
+                className="w-full py-3 bg-slate-100 hover:bg-slate-200 dark:bg-slate-950 dark:hover:bg-slate-850 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 text-slate-700 dark:text-slate-300 font-semibold rounded-2xl transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer text-xs uppercase tracking-wider font-mono"
               >
                 <Share2 className="w-3.5 h-3.5 text-amber-500" />
                 <span>{lang === 'en' ? 'Share Tournament Links' : 'مشاركة روابط البطولة والمسابقة'}</span>

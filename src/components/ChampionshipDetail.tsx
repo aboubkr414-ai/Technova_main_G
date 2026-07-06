@@ -192,7 +192,7 @@ export default function ChampionshipDetail({ lang, onBackClick, onRegisterClick 
         initial={{ opacity: 0, x: isAr ? 10 : -10 }}
         animate={{ opacity: 1, x: 0 }}
         onClick={onBackClick}
-        className="inline-flex items-center gap-2 px-4 py-2 bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 text-slate-300 hover:text-white rounded-xl text-sm font-semibold transition-all duration-200 cursor-pointer mb-10 group"
+        className="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white rounded-xl text-sm font-semibold transition-all duration-200 cursor-pointer mb-10 group"
       >
         {isAr ? <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" /> : <ArrowLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />}
         <span>{t.backBtn}</span>
@@ -200,25 +200,25 @@ export default function ChampionshipDetail({ lang, onBackClick, onRegisterClick 
 
       {/* Hero Header Area */}
       <div className="text-center md:text-left mb-16 relative">
-        <div className="inline-flex items-center gap-2 px-3 py-1 bg-amber-500/10 border border-amber-500/20 rounded-full text-amber-400 text-xs font-semibold mb-4 uppercase tracking-widest font-mono">
+        <div className="inline-flex items-center gap-2 px-3 py-1 bg-amber-500/10 border border-amber-500/20 rounded-full text-amber-600 dark:text-amber-400 text-xs font-semibold mb-4 uppercase tracking-widest font-mono">
           🚀 IJCC 2026 Official Briefing
         </div>
-        <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4 text-white leading-tight">
+        <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4 text-slate-900 dark:text-white leading-tight">
           {t.title}
         </h1>
-        <p className="text-xl md:text-2xl font-semibold bg-gradient-to-r from-blue-400 to-amber-200 bg-clip-text text-transparent mb-8">
+        <p className="text-xl md:text-2xl font-semibold bg-gradient-to-r from-blue-500 to-amber-500 dark:from-blue-400 dark:to-amber-200 bg-clip-text text-transparent mb-8">
           {t.subtitle}
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center bg-slate-900/30 backdrop-blur-md border border-slate-800/80 rounded-3xl p-6 md:p-8">
-          <div className="md:col-span-8 text-slate-300 text-base md:text-lg leading-relaxed space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center bg-white/60 dark:bg-slate-900/30 backdrop-blur-md border border-slate-200 dark:border-slate-800/80 rounded-3xl p-6 md:p-8">
+          <div className="md:col-span-8 text-slate-700 dark:text-slate-300 text-base md:text-lg leading-relaxed space-y-4">
             <p>{t.intro}</p>
-            <p className="text-sm text-slate-400">{t.locationIntro}</p>
+            <p className="text-sm text-slate-500 dark:text-slate-400">{t.locationIntro}</p>
           </div>
-          <div className="md:col-span-4 bg-slate-950 border border-slate-800/80 rounded-2xl p-6 text-center space-y-3">
-            <Globe className="w-10 h-10 text-blue-400 mx-auto" />
-            <div className="text-lg font-bold text-white">100% Online</div>
-            <div className="text-xs text-slate-400 uppercase tracking-wider font-mono">Zero Travel Cost</div>
+          <div className="md:col-span-4 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800/80 rounded-2xl p-6 text-center space-y-3">
+            <Globe className="w-10 h-10 text-blue-500 dark:text-blue-400 mx-auto" />
+            <div className="text-lg font-bold text-slate-900 dark:text-white">100% Online</div>
+            <div className="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wider font-mono">Zero Travel Cost</div>
           </div>
         </div>
       </div>
@@ -231,14 +231,14 @@ export default function ChampionshipDetail({ lang, onBackClick, onRegisterClick 
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-slate-900/40 border border-slate-800 rounded-3xl p-8 flex flex-col justify-between"
+          className="bg-white/60 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-3xl p-8"
         >
           <div>
-            <h3 className="text-2xl font-bold font-display text-white mb-6 flex items-center gap-2">
-              <Users className="w-6 h-6 text-blue-400" />
+            <h3 className="text-2xl font-bold font-display text-slate-900 dark:text-white mb-6 flex items-center gap-2">
+              <Users className="w-6 h-6 text-blue-500 dark:text-blue-400" />
               <span>{t.whoTitle}</span>
             </h3>
-            <ul className="space-y-4 text-slate-300">
+            <ul className="space-y-4 text-slate-600 dark:text-slate-300">
               <li className="flex items-start gap-3">
                 <span className="w-2 h-2 rounded-full bg-blue-500 mt-2 shrink-0" />
                 <span>{t.whoAge}</span>
@@ -257,7 +257,7 @@ export default function ChampionshipDetail({ lang, onBackClick, onRegisterClick 
               </li>
             </ul>
           </div>
-          <div className="pt-6 border-t border-slate-800/60 mt-6 flex items-center gap-2.5 text-xs font-mono text-slate-500">
+          <div className="pt-6 border-t border-slate-200 dark:border-slate-800/60 mt-6 flex items-center gap-2.5 text-xs font-mono text-slate-500">
             <Laptop className="w-4 h-4 text-slate-400" />
             <span>Recommended: Laptop or Desktop + Web Connection</span>
           </div>
@@ -268,13 +268,13 @@ export default function ChampionshipDetail({ lang, onBackClick, onRegisterClick 
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-slate-900/40 border border-slate-800 rounded-3xl p-8"
+          className="bg-white/60 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-3xl p-8"
         >
-          <h3 className="text-2xl font-bold font-display text-white mb-2 flex items-center gap-2">
-            <Award className="w-6 h-6 text-amber-400" />
+          <h3 className="text-2xl font-bold font-display text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+            <Award className="w-6 h-6 text-amber-500 dark:text-amber-400" />
             <span>{t.catTitle}</span>
           </h3>
-          <p className="text-xs text-slate-400 mb-6">{t.catSub}</p>
+          <p className="text-xs text-slate-550 dark:text-slate-400 mb-6">{t.catSub}</p>
 
           <div className="space-y-3">
             {[
@@ -285,10 +285,10 @@ export default function ChampionshipDetail({ lang, onBackClick, onRegisterClick 
             ].map((item, idx) => (
               <div 
                 key={idx} 
-                className={`bg-slate-950/80 border border-slate-800 border-l-4 ${item.color} rounded-2xl p-4 flex items-center justify-between`}
+                className={`bg-slate-55 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 border-l-4 ${item.color} rounded-2xl p-4 flex items-center justify-between`}
               >
-                <div className="font-bold text-white text-sm">{item.cat}</div>
-                <div className="px-3 py-1 bg-slate-900 rounded-lg text-xs font-semibold text-slate-300 border border-slate-800/60">
+                <div className="font-bold text-slate-900 dark:text-white text-sm">{item.cat}</div>
+                <div className="px-3 py-1 bg-slate-100 dark:bg-slate-900 rounded-lg text-xs font-semibold text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-800/60">
                   {item.ages}
                 </div>
               </div>
@@ -302,32 +302,32 @@ export default function ChampionshipDetail({ lang, onBackClick, onRegisterClick 
         initial={{ opacity: 0, y: 15 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="bg-gradient-to-br from-slate-900/60 to-slate-950/80 border border-slate-800 rounded-3xl p-8 md:p-10 mb-12"
+        className="bg-gradient-to-br from-slate-100/85 to-slate-200/85 dark:from-slate-900/60 dark:to-slate-950/80 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 md:p-10 mb-12"
       >
         <div className="max-w-xl mb-8">
-          <h3 className="text-2xl font-bold font-display text-white mb-2 flex items-center gap-2">
-            <Calendar className="w-6 h-6 text-emerald-400" />
+          <h3 className="text-2xl font-bold font-display text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+            <Calendar className="w-6 h-6 text-emerald-500 dark:text-emerald-400" />
             <span>{t.schedTitle}</span>
           </h3>
-          <p className="text-sm text-slate-400">{t.schedSub}</p>
+          <p className="text-sm text-slate-600 dark:text-slate-400">{t.schedSub}</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
           {[
-            { label: t.deadlineLabel, date: t.deadlineDate, desc: 'Secure slot eligibility', icon: <Clock className="w-5 h-5 text-amber-400" /> },
-            { label: t.qualifierLabel, date: t.qualifierDate, desc: 'First algorithmic round', icon: <Laptop className="w-5 h-5 text-blue-400" /> },
-            { label: t.finalLabel, date: t.finalDate, desc: 'Project submission portal closes', icon: <Trophy className="w-5 h-5 text-emerald-400" /> }
+            { label: t.deadlineLabel, date: t.deadlineDate, desc: 'Secure slot eligibility', icon: <Clock className="w-5 h-5 text-amber-500 dark:text-amber-400" /> },
+            { label: t.qualifierLabel, date: t.qualifierDate, desc: 'First algorithmic round', icon: <Laptop className="w-5 h-5 text-blue-500 dark:text-blue-400" /> },
+            { label: t.finalLabel, date: t.finalDate, desc: 'Project submission portal closes', icon: <Trophy className="w-5 h-5 text-emerald-550 dark:text-emerald-400" /> }
           ].map((item, idx) => (
-            <div key={idx} className="bg-slate-950 border border-slate-850 rounded-2xl p-6 relative flex flex-col justify-between shadow-lg">
+            <div key={idx} className="bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-850 rounded-2xl p-6 relative flex flex-col justify-between shadow-lg">
               <div className="flex items-center justify-between mb-4">
-                <div className="p-2.5 bg-slate-900 rounded-xl border border-slate-800">
+                <div className="p-2.5 bg-slate-100 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800">
                   {item.icon}
                 </div>
-                <span className="text-[10px] font-mono text-slate-600 uppercase font-bold">Milestone 0{idx+1}</span>
+                <span className="text-[10px] font-mono text-slate-500 dark:text-slate-600 uppercase font-bold">Milestone 0{idx+1}</span>
               </div>
-              <h4 className="text-xs font-bold uppercase text-slate-400 tracking-wider font-mono">{item.label}</h4>
-              <p className="text-xl font-extrabold text-white mt-1.5 mb-2">{item.date}</p>
-              <p className="text-xs text-slate-500 leading-relaxed">{item.desc}</p>
+              <h4 className="text-xs font-bold uppercase text-slate-500 dark:text-slate-400 tracking-wider font-mono">{item.label}</h4>
+              <p className="text-xl font-extrabold text-slate-900 dark:text-white mt-1.5 mb-2">{item.date}</p>
+              <p className="text-xs text-slate-600 dark:text-slate-500 leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -342,31 +342,31 @@ export default function ChampionshipDetail({ lang, onBackClick, onRegisterClick 
         initial={{ opacity: 0, y: 15 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="bg-slate-900/40 border border-slate-800 rounded-3xl p-8 md:p-10 mb-12"
+        className="bg-white/60 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 md:p-10 mb-12"
       >
         <div className="max-w-xl mb-8 text-left">
-          <h3 className="text-2xl font-bold font-display text-white mb-2 flex items-center gap-2">
-            <Trophy className="w-6 h-6 text-amber-400" />
+          <h3 className="text-2xl font-bold font-display text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+            <Trophy className="w-6 h-6 text-amber-500 dark:text-amber-400" />
             <span>{t.whyTitle}</span>
           </h3>
-          <p className="text-sm text-slate-400">{t.whySub}</p>
+          <p className="text-sm text-slate-600 dark:text-slate-400">{t.whySub}</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {[
-            { title: t.prizes, icon: <Gift className="w-5 h-5 text-rose-400" /> },
-            { title: t.certificates, icon: <Award className="w-5 h-5 text-blue-400" /> },
-            { title: t.awards, icon: <Trophy className="w-5 h-5 text-amber-400" /> },
-            { title: t.internships, icon: <Users className="w-5 h-5 text-purple-400" /> },
-            { title: t.recognition, icon: <Globe className="w-5 h-5 text-emerald-400" /> },
-            { title: t.showcase, icon: <Laptop className="w-5 h-5 text-cyan-400" /> },
-            { title: t.chanceToLearn, icon: <MessageSquare className="w-5 h-5 text-teal-400" /> }
+            { title: t.prizes, icon: <Gift className="w-5 h-5 text-rose-500 dark:text-rose-400" /> },
+            { title: t.certificates, icon: <Award className="w-5 h-5 text-blue-500 dark:text-blue-400" /> },
+            { title: t.awards, icon: <Trophy className="w-5 h-5 text-amber-500 dark:text-amber-400" /> },
+            { title: t.internships, icon: <Users className="w-5 h-5 text-purple-500 dark:text-purple-400" /> },
+            { title: t.recognition, icon: <Globe className="w-5 h-5 text-emerald-500 dark:text-emerald-400" /> },
+            { title: t.showcase, icon: <Laptop className="w-5 h-5 text-cyan-500 dark:text-cyan-400" /> },
+            { title: t.chanceToLearn, icon: <MessageSquare className="w-5 h-5 text-teal-500 dark:text-teal-400" /> }
           ].map((item, idx) => (
-            <div key={idx} className="bg-slate-950/70 border border-slate-850/80 rounded-2xl p-4 flex items-center gap-4">
-              <div className="p-2 bg-slate-900 rounded-xl border border-slate-800 shrink-0">
+            <div key={idx} className="bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-850/80 rounded-2xl p-4 flex items-center gap-4">
+              <div className="p-2 bg-slate-100 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shrink-0">
                 {item.icon}
               </div>
-              <span className="text-slate-200 text-sm font-medium">{item.title}</span>
+              <span className="text-slate-700 dark:text-slate-200 text-sm font-medium">{item.title}</span>
             </div>
           ))}
         </div>
@@ -384,21 +384,21 @@ export default function ChampionshipDetail({ lang, onBackClick, onRegisterClick 
           initial={{ opacity: 0, scale: 0.98 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="md:col-span-5 bg-slate-900/40 border border-slate-800/80 rounded-3xl p-6 md:p-8 flex flex-col justify-between relative overflow-hidden shadow-lg"
+          className="md:col-span-5 bg-white/60 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/80 rounded-3xl p-6 md:p-8 flex flex-col justify-between relative overflow-hidden shadow-lg"
         >
           <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/5 rounded-full blur-2xl pointer-events-none" />
           <div>
-            <div className="flex items-center gap-2 text-blue-400 font-semibold mb-4">
-              <ShieldCheck className="w-6 h-6 shrink-0 text-emerald-400" />
-              <span className="text-sm font-mono uppercase tracking-wider text-slate-200">{t.warningHeader}</span>
+            <div className="flex items-center gap-2 text-blue-500 dark:text-blue-400 font-semibold mb-4">
+              <ShieldCheck className="w-6 h-6 shrink-0 text-emerald-500 dark:text-emerald-400" />
+              <span className="text-sm font-mono uppercase tracking-wider text-slate-800 dark:text-slate-200">{t.warningHeader}</span>
             </div>
-            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-light">
               {t.warningBody}
             </p>
           </div>
-          <div className="mt-8 pt-4 border-t border-slate-800/60">
-            <span className="text-[11px] font-mono text-emerald-400 font-bold uppercase tracking-wider">{t.regCost}</span>
-            <p className="text-xs text-slate-400 mt-1">{t.regNoFee}</p>
+          <div className="mt-8 pt-4 border-t border-slate-200 dark:border-slate-800/60">
+            <span className="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-bold uppercase tracking-wider">{t.regCost}</span>
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{t.regNoFee}</p>
           </div>
         </motion.div>
 
@@ -407,16 +407,16 @@ export default function ChampionshipDetail({ lang, onBackClick, onRegisterClick 
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="md:col-span-7 bg-gradient-to-br from-blue-950/40 to-slate-900/40 border border-blue-500/20 rounded-3xl p-8 flex flex-col justify-between"
+          className="md:col-span-7 bg-gradient-to-br from-blue-50/80 to-blue-100/80 dark:from-blue-950/40 dark:to-slate-900/40 border border-blue-200 dark:border-blue-500/20 rounded-3xl p-8 flex flex-col justify-between"
         >
           <div>
-            <h3 className="text-2xl font-bold font-display text-white mb-3">
+            <h3 className="text-2xl font-bold font-display text-slate-900 dark:text-white mb-3">
               {t.regTitle}
             </h3>
-            <p className="text-slate-300 text-sm mb-4">
-              {t.howToReg} <span className="text-amber-400 font-bold">{t.regCost}</span>
+            <p className="text-slate-700 dark:text-slate-300 text-sm mb-4">
+              {t.howToReg} <span className="text-amber-600 dark:text-amber-400 font-bold">{t.regCost}</span>
             </p>
-            <p className="text-slate-400 text-xs leading-relaxed mb-6">
+            <p className="text-slate-500 dark:text-slate-400 text-xs leading-relaxed mb-6">
               {t.scanOrClick}
             </p>
           </div>
@@ -434,7 +434,7 @@ export default function ChampionshipDetail({ lang, onBackClick, onRegisterClick 
 
             <button
               onClick={onRegisterClick}
-              className="w-full py-3.5 bg-slate-950 hover:bg-slate-900 border border-slate-800 text-amber-400 hover:text-amber-300 font-bold rounded-2xl transition-all duration-200 text-xs cursor-pointer"
+              className="w-full py-3.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-950 dark:hover:bg-slate-900 border border-slate-200 dark:border-slate-800 text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 font-bold rounded-2xl transition-all duration-200 text-xs cursor-pointer"
             >
               Pre-Register via Admissions Board
             </button>
@@ -447,17 +447,17 @@ export default function ChampionshipDetail({ lang, onBackClick, onRegisterClick 
         initial={{ opacity: 0, y: 15 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="bg-gradient-to-r from-emerald-950/40 to-slate-900/40 border border-emerald-500/20 rounded-3xl p-8 flex flex-col md:flex-row items-center justify-between gap-8 mb-12"
+        className="bg-gradient-to-r from-emerald-50/60 to-slate-50/60 dark:from-emerald-950/40 dark:to-slate-900/40 border border-emerald-200 dark:border-emerald-500/20 rounded-3xl p-8 flex flex-col md:flex-row items-center justify-between gap-8 mb-12"
       >
         <div className="max-w-2xl text-left">
-          <div className="flex items-center gap-2 text-emerald-400 font-semibold text-xs mb-3 font-mono uppercase tracking-widest">
+          <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-semibold text-xs mb-3 font-mono uppercase tracking-widest">
             <MessageSquare className="w-4 h-4" />
             <span>Stay Tuned Live</span>
           </div>
-          <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
+          <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-3">
             {t.waTitle}
           </h3>
-          <p className="text-slate-400 text-sm leading-relaxed">
+          <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
             {t.waDesc}
           </p>
         </div>
@@ -478,17 +478,17 @@ export default function ChampionshipDetail({ lang, onBackClick, onRegisterClick 
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        className="border border-slate-800/80 rounded-3xl p-8 md:p-12 text-center bg-slate-950/40 backdrop-blur-sm relative overflow-hidden mb-12"
+        className="border border-slate-200 dark:border-slate-800/80 rounded-3xl p-8 md:p-12 text-center bg-white/60 dark:bg-slate-950/40 backdrop-blur-sm relative overflow-hidden mb-12"
       >
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-amber-400 to-emerald-500" />
-        <Share2 className="w-10 h-10 text-blue-400 mx-auto mb-4" />
-        <h3 className="text-2xl font-bold font-display text-white mb-4">
+        <Share2 className="w-10 h-10 text-blue-500 dark:text-blue-400 mx-auto mb-4" />
+        <h3 className="text-2xl font-bold font-display text-slate-900 dark:text-white mb-4">
           {t.spreadTitle}
         </h3>
-        <p className="text-slate-400 text-sm leading-relaxed max-w-2xl mx-auto mb-6">
+        <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed max-w-2xl mx-auto mb-6">
           {t.spreadDesc}
         </p>
-        <p className="text-amber-400 font-semibold text-base">
+        <p className="text-amber-600 dark:text-amber-400 font-semibold text-base">
           {t.spreadFooter}
         </p>
       </motion.div>
@@ -498,29 +498,29 @@ export default function ChampionshipDetail({ lang, onBackClick, onRegisterClick 
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        className="bg-slate-950 border border-slate-900 rounded-3xl p-8"
+        className="bg-white/60 dark:bg-slate-950 border border-slate-200 dark:border-slate-900 rounded-3xl p-8"
       >
-        <h3 className="text-lg font-bold text-white mb-6 font-display border-b border-slate-900 pb-3 flex items-center gap-2">
-          <Mail className="w-5 h-5 text-slate-400" />
+        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-6 font-display border-b border-slate-100 dark:border-slate-900 pb-3 flex items-center gap-2">
+          <Mail className="w-5 h-5 text-slate-500" />
           <span>{t.connTitle}</span>
         </h3>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
           <div>
             <span className="text-slate-500 text-xs font-mono block uppercase tracking-widest mb-1">Affiliation</span>
-            <span className="font-bold text-slate-300">{t.organizedBy}</span>
+            <span className="font-bold text-slate-700 dark:text-slate-300">{t.organizedBy}</span>
           </div>
           <div>
             <span className="text-slate-500 text-xs font-mono block uppercase tracking-widest mb-1">Official Site</span>
-            <a href="https://www.technovainternational.com" target="_blank" rel="noopener noreferrer" className="font-bold text-blue-400 hover:underline">{t.website}</a>
+            <a href="https://www.technovainternational.com" target="_blank" rel="noopener noreferrer" className="font-bold text-blue-500 dark:text-blue-400 hover:underline">{t.website}</a>
           </div>
           <div>
             <span className="text-slate-500 text-xs font-mono block uppercase tracking-widest mb-1">Direct Desk</span>
-            <a href="mailto:info@technovainternational.com" className="font-bold text-blue-400 hover:underline">{t.email}</a>
+            <a href="mailto:info@technovainternational.com" className="font-bold text-blue-500 dark:text-blue-400 hover:underline">{t.email}</a>
           </div>
         </div>
 
-        <div className="mt-8 pt-6 border-t border-slate-900 text-xs text-slate-500 font-mono">
+        <div className="mt-8 pt-6 border-t border-slate-100 dark:border-slate-900 text-xs text-slate-500 font-mono">
           {t.socialHandle}
         </div>
       </motion.div>

@@ -20,16 +20,33 @@ export default function App() {
     const saved = localStorage.getItem('techNovaLang');
     return (saved === 'ar' || saved === 'en') ? (saved as Language) : 'en';
   });
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    const saved = localStorage.getItem('techNovaTheme');
+    return (saved === 'light' || saved === 'dark') ? (saved as 'light' | 'dark') : 'dark';
+  });
 
   const handleSetLang = (newLang: Language) => {
     setLang(newLang);
     localStorage.setItem('techNovaLang', newLang);
   };
 
+  const handleSetTheme = (newTheme: 'light' | 'dark') => {
+    setTheme(newTheme);
+    localStorage.setItem('techNovaTheme', newTheme);
+  };
+
   useEffect(() => {
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
     document.documentElement.lang = lang;
   }, [lang]);
+
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [theme]);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -46,12 +63,12 @@ export default function App() {
   return (
     <div 
       dir={lang === 'ar' ? 'rtl' : 'ltr'} 
-      className={`relative min-h-screen bg-[#020617] text-white selection:bg-amber-500/30 selection:text-amber-200 antialiased overflow-x-hidden ${
+      className={`relative min-h-screen bg-slate-50 dark:bg-[#020617] text-slate-900 dark:text-white selection:bg-amber-500/30 selection:text-amber-200 antialiased overflow-x-hidden ${
         lang === 'ar' ? 'font-sans-ar' : 'font-sans'
       }`}
     >
       {/* Premium ambient light grid backdrop */}
-      <div className="fixed inset-0 bg-grid-white opacity-[0.03] pointer-events-none z-0" />
+      <div className="fixed inset-0 bg-grid-slate dark:bg-grid-white opacity-[0.35] dark:opacity-[0.03] pointer-events-none z-0" />
       
       {/* Sticky Header Navigation */}
       <Navbar 
@@ -60,6 +77,8 @@ export default function App() {
         setLang={handleSetLang} 
         currentPage={currentPage}
         onPageChange={setCurrentPage}
+        theme={theme}
+        setTheme={handleSetTheme}
       />
 
       {/* Main Content Sections */}

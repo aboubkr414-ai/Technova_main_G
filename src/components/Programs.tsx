@@ -69,10 +69,10 @@ export default function Programs({ onRegisterClick, lang }: ProgramsProps) {
   ];
 
   return (
-    <section id="programs" className="py-24 bg-[#020617] relative bg-grid-white">
+    <section id="programs" className="py-24 bg-slate-50 dark:bg-[#020617] relative bg-grid-slate dark:bg-grid-white">
       {/* Grid line divider styles */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-800 to-transparent" />
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-800 to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-200 dark:via-slate-800 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-200 dark:via-slate-800 to-transparent" />
 
       {/* Floating orbs */}
       <div className="absolute bottom-1/4 left-10 w-[300px] h-[300px] bg-blue-500/5 rounded-full blur-[100px] pointer-events-none" />
@@ -80,13 +80,13 @@ export default function Programs({ onRegisterClick, lang }: ProgramsProps) {
 
       <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full text-blue-400 text-xs font-semibold mb-4 uppercase tracking-widest font-mono">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full text-blue-600 dark:text-blue-400 text-xs font-semibold mb-4 uppercase tracking-widest font-mono">
             {t.progBadge}
           </div>
-          <h2 className="font-display text-4xl sm:text-5xl font-extrabold tracking-tight mb-6 text-white leading-tight">
+          <h2 className="font-display text-4xl sm:text-5xl font-extrabold tracking-tight mb-6 text-slate-900 dark:text-white leading-tight">
             {t.progHeading}
           </h2>
-          <p className="text-slate-400 text-lg leading-relaxed">
+          <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
             {t.progDesc}
           </p>
         </div>
@@ -100,51 +100,51 @@ export default function Programs({ onRegisterClick, lang }: ProgramsProps) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, delay: idx * 0.08 }}
-              className={`group relative bg-gradient-to-br ${prog.color} bg-slate-950/80 hover:bg-slate-900/40 backdrop-blur-md border rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-slate-500/5 hover:-translate-y-1.5`}
+              className={`group relative bg-gradient-to-br ${prog.color} bg-white/65 dark:bg-slate-950/80 hover:bg-white dark:hover:bg-slate-900/40 backdrop-blur-md border border-slate-200 dark:border-slate-800/85 rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-slate-500/5 hover:-translate-y-1.5`}
             >
               {/* Custom border lighting effects */}
-              <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-white/10 to-transparent group-hover:via-white/30 transition-all duration-500" />
+              <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-slate-200 dark:via-white/10 to-transparent group-hover:via-slate-300 dark:group-hover:via-white/30 transition-all duration-500" />
               
               <div>
                 <div className="flex justify-between items-center mb-6">
-                  <div className="p-4 bg-slate-950 border border-slate-800 rounded-2xl group-hover:scale-110 transition-transform duration-300 shadow-inner">
+                  <div className="p-4 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl group-hover:scale-110 transition-transform duration-300 shadow-inner">
                     {prog.icon}
                   </div>
                   {prog.badge ? (
-                    <span className="px-3 py-1 bg-amber-500/20 border border-amber-500/30 text-amber-300 text-[10px] font-bold rounded-full font-mono uppercase tracking-widest animate-pulse">
+                    <span className="px-3 py-1 bg-amber-500/20 border border-amber-500/30 text-amber-600 dark:text-amber-300 text-[10px] font-bold rounded-full font-mono uppercase tracking-widest animate-pulse">
                       {prog.badge}
                     </span>
                   ) : (
-                    <span className="text-xs text-slate-500 font-mono tracking-wide">
+                    <span className="text-xs text-slate-500 dark:text-slate-450 font-mono tracking-wide">
                       {prog.category}
                     </span>
                   )}
                 </div>
 
-                <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-amber-400 transition-colors duration-200">
+                <h3 className="text-2xl font-bold mb-3 text-slate-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors duration-200">
                   {prog.title}
                 </h3>
                 
-                <p className="text-slate-400 text-sm leading-relaxed mb-6">
+                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">
                   {prog.desc}
                 </p>
               </div>
 
               <div>
-                <div className="grid grid-cols-2 gap-4 border-t border-slate-900 pt-6 mb-6 text-xs">
-                  <div className="flex items-center gap-2 text-slate-400">
-                    <Calendar className="w-4 h-4 text-slate-500" />
+                <div className="grid grid-cols-2 gap-4 border-t border-slate-200 dark:border-slate-900 pt-6 mb-6 text-xs">
+                  <div className="flex items-center gap-2 text-slate-500 dark:text-slate-400">
+                    <Calendar className="w-4 h-4 text-slate-400 dark:text-slate-500" />
                     <span>{prog.duration}</span>
                   </div>
-                  <div className="flex items-center gap-2 text-slate-400 justify-end">
-                    <Sparkles className="w-4 h-4 text-slate-500" />
+                  <div className="flex items-center gap-2 text-slate-500 dark:text-slate-400 justify-end">
+                    <Sparkles className="w-4 h-4 text-slate-400 dark:text-slate-500" />
                     <span>{prog.level}</span>
                   </div>
                 </div>
 
                 <a
                   href="mailto:info@technovainternational.com?subject=Inquiry about TechNova Programs"
-                  className="w-full py-3 bg-slate-950 hover:bg-white text-slate-400 hover:text-slate-950 font-bold rounded-2xl text-xs border border-slate-800 hover:border-white transition-all duration-300 flex items-center justify-center gap-2 group/btn cursor-pointer"
+                  className="w-full py-3 bg-slate-900 hover:bg-slate-850 dark:bg-slate-950 dark:hover:bg-white text-white dark:text-slate-400 hover:text-white dark:hover:text-slate-950 font-bold rounded-2xl text-xs border border-transparent dark:border-slate-800 hover:border-slate-900 dark:hover:border-white transition-all duration-300 flex items-center justify-center gap-2 group/btn cursor-pointer"
                 >
                   <span>{t.progInquireBtn}</span>
                   <span className={`group-hover/btn:translate-x-1 transition-transform ${lang === 'ar' ? 'rotate-180' : ''}`}>→</span>
@@ -155,11 +155,11 @@ export default function Programs({ onRegisterClick, lang }: ProgramsProps) {
         </div>
 
         <div className="mt-16 text-center">
-          <p className="text-slate-500 text-sm">
+          <p className="text-slate-650 dark:text-slate-500 text-sm">
             {t.progAdmissionsHelp}{' '}
             <a
               href="mailto:info@technovainternational.com?subject=Consultation with Admissions Panel"
-              className="text-amber-400 hover:text-amber-300 font-semibold underline underline-offset-4 cursor-pointer"
+              className="text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 font-semibold underline underline-offset-4 cursor-pointer"
             >
               {t.progConsultBtn}
             </a>

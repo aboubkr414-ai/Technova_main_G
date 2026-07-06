@@ -25,14 +25,14 @@ export default function Footer({ lang }: FooterProps) {
   ];
 
   return (
-    <footer className="bg-[#020617] border-t border-slate-900/80 pt-20 pb-10 relative overflow-hidden">
+    <footer className="bg-slate-100 dark:bg-[#020617] border-t border-slate-200 dark:border-slate-900/80 pt-20 pb-10 relative overflow-hidden">
       {/* Visual highlights */}
       <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-blue-600/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
         
         {/* Upper section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-slate-900">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-slate-200 dark:border-slate-900">
           
           {/* Logo Column */}
           <div className="lg:col-span-4 flex flex-col justify-between h-full gap-6">
@@ -41,20 +41,20 @@ export default function Footer({ lang }: FooterProps) {
                 <span className="font-display text-lg tracking-wider">TN</span>
               </div>
               <div className="flex flex-col">
-                <span className="font-display text-lg font-bold tracking-tight text-white">
-                  {t.brandName} <span className="text-amber-400 font-normal">{t.brandSuffix}</span>
+                <span className="font-display text-lg font-bold tracking-tight text-slate-900 dark:text-white">
+                  {t.brandName} <span className="text-amber-600 dark:text-amber-400 font-normal">{t.brandSuffix}</span>
                 </span>
-                <span className="text-[10px] text-slate-500 font-mono tracking-widest uppercase -mt-0.5">
+                <span className="text-[10px] text-slate-500 dark:text-slate-400 font-mono tracking-widest uppercase -mt-0.5">
                   {t.globalEducation}
                 </span>
               </div>
             </div>
 
-            <p className="text-slate-500 text-sm max-w-sm leading-relaxed mt-2">
+            <p className="text-slate-600 dark:text-slate-500 text-sm max-w-sm leading-relaxed mt-2">
               {t.footerDesc}
             </p>
 
-            <div className="flex items-center gap-2 text-xs text-slate-600">
+            <div className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-550">
               <ShieldCheck className="w-4 h-4 text-emerald-600" />
               <span>{t.footerAccredited}</span>
             </div>
@@ -64,7 +64,7 @@ export default function Footer({ lang }: FooterProps) {
           <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-8">
             {sections.map((sec) => (
               <div key={sec.title} className="flex flex-col gap-4">
-                <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-widest font-mono">
+                <h4 className="text-xs font-semibold text-slate-600 dark:text-slate-400 uppercase tracking-widest font-mono">
                   {sec.title}
                 </h4>
                 <ul className="flex flex-col gap-2.5 text-sm">
@@ -72,7 +72,7 @@ export default function Footer({ lang }: FooterProps) {
                     <li key={link.name}>
                       <a
                         href={link.href}
-                        className="text-slate-500 hover:text-white transition-colors duration-200"
+                        className="text-slate-550 dark:text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors duration-200"
                       >
                         {link.name}
                       </a>
@@ -86,15 +86,15 @@ export default function Footer({ lang }: FooterProps) {
         </div>
 
         {/* Lower section (Copyright & Regulations) */}
-        <div className="pt-10 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-slate-600 font-mono">
+        <div className="pt-10 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-slate-500 dark:text-slate-600 font-mono">
           <div>
             <span>© {currentYear} {t.footerCopyright}</span>
           </div>
 
           <div className="flex items-center gap-6">
-            <a href="#about" className="hover:text-slate-400 transition-colors">{t.footerPrivacy}</a>
-            <a href="#about" className="hover:text-slate-400 transition-colors">{t.footerTerms}</a>
-            <a href="#contact" className="hover:text-slate-400 transition-colors">{t.footerSupport}</a>
+            <a href="#about" className="hover:text-slate-800 dark:hover:text-slate-400 transition-colors">{t.footerPrivacy}</a>
+            <a href="#about" className="hover:text-slate-800 dark:hover:text-slate-400 transition-colors">{t.footerTerms}</a>
+            <a href="#contact" className="hover:text-slate-800 dark:hover:text-slate-400 transition-colors">{t.footerSupport}</a>
           </div>
         </div>
 

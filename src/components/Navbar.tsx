@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, ArrowRight, ShieldCheck, Globe } from 'lucide-react';
+import { Menu, X, ArrowRight, ShieldCheck, Globe, Sun, Moon } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Language, translations } from '../translations';
 
@@ -9,9 +9,11 @@ interface NavbarProps {
   setLang: (lang: Language) => void;
   currentPage: 'home' | 'championship';
   onPageChange: (page: 'home' | 'championship') => void;
+  theme: 'light' | 'dark';
+  setTheme: (theme: 'light' | 'dark') => void;
 }
 
-export default function Navbar({ onRegisterClick, lang, setLang, currentPage, onPageChange }: NavbarProps) {
+export default function Navbar({ onRegisterClick, lang, setLang, currentPage, onPageChange, theme, setTheme }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -64,7 +66,7 @@ export default function Navbar({ onRegisterClick, lang, setLang, currentPage, on
         id="navbar"
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80 py-4 shadow-lg'
+            ? 'bg-white/85 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800/80 py-4 shadow-md dark:shadow-lg'
             : 'bg-transparent py-6'
         }`}
       >
@@ -79,10 +81,10 @@ export default function Navbar({ onRegisterClick, lang, setLang, currentPage, on
               <span className="font-display text-lg tracking-wider">TN</span>
             </div>
             <div className="flex flex-col">
-              <span className="font-display text-lg font-bold tracking-tight text-white flex items-center gap-1.5">
-                {t.brandName} <span className="text-amber-400 font-normal">{t.brandSuffix}</span>
+              <span className="font-display text-lg font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-1.5">
+                {t.brandName} <span className="text-amber-500 dark:text-amber-400 font-normal">{t.brandSuffix}</span>
               </span>
-              <span className="text-[10px] text-slate-400 font-mono tracking-widest uppercase -mt-1">
+              <span className="text-[10px] text-slate-500 dark:text-slate-400 font-mono tracking-widest uppercase -mt-1">
                 {t.globalEducation}
               </span>
             </div>
@@ -97,8 +99,8 @@ export default function Navbar({ onRegisterClick, lang, setLang, currentPage, on
                 onClick={(e) => handleNavLinkClick(e, link.href)}
                 className={`text-sm font-medium transition-colors duration-200 relative group py-2 ${
                   link.href === '#ijcc' && currentPage === 'championship'
-                    ? 'text-amber-400'
-                    : 'text-slate-300 hover:text-white'
+                    ? 'text-amber-500 dark:text-amber-400 font-semibold'
+                    : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
                 }`}
               >
                 {link.name}
@@ -109,14 +111,23 @@ export default function Navbar({ onRegisterClick, lang, setLang, currentPage, on
             ))}
           </div>
 
-          {/* Desktop CTA & Language Switcher */}
-          <div className="hidden lg:flex items-center gap-4">
+          {/* Desktop CTA, Theme & Language Switcher */}
+          <div className="hidden lg:flex items-center gap-3.5">
+            {/* Theme Toggle */}
+            <button
+              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+              className="p-2 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800/80 hover:border-slate-300 dark:hover:border-slate-700 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white rounded-full active:scale-95 transition-all duration-200 cursor-pointer"
+              aria-label="Toggle Theme"
+            >
+              {theme === 'light' ? <Moon className="w-4 h-4 text-slate-600" /> : <Sun className="w-4 h-4 text-amber-400" />}
+            </button>
+
             {/* Language Switcher */}
             <button
               onClick={() => setLang(lang === 'en' ? 'ar' : 'en')}
-              className="px-3.5 py-1.5 bg-slate-900 border border-slate-800/80 hover:border-slate-700 text-slate-300 hover:text-white rounded-full text-xs font-semibold flex items-center gap-1.5 active:scale-95 transition-all duration-200 cursor-pointer"
+              className="px-3.5 py-1.5 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800/80 hover:border-slate-300 dark:hover:border-slate-700 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white rounded-full text-xs font-semibold flex items-center gap-1.5 active:scale-95 transition-all duration-200 cursor-pointer"
             >
-              <Globe className="w-3.5 h-3.5 text-blue-400" />
+              <Globe className="w-3.5 h-3.5 text-blue-500 dark:text-blue-400" />
               <span>{lang === 'en' ? 'العربية' : 'English'}</span>
             </button>
 
@@ -132,20 +143,29 @@ export default function Navbar({ onRegisterClick, lang, setLang, currentPage, on
             </a>
           </div>
 
-          {/* Mobile Hamburguer & Language Toggle Menu */}
-          <div className="flex lg:hidden items-center gap-3">
+          {/* Mobile Hamburguer & Theme/Language Toggle Menu */}
+          <div className="flex lg:hidden items-center gap-2">
+            {/* Theme Toggle Mobile */}
+            <button
+              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+              className="p-1.5 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 rounded-xl cursor-pointer"
+              aria-label="Toggle Theme"
+            >
+              {theme === 'light' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4 text-amber-400" />}
+            </button>
+
             <button
               onClick={() => setLang(lang === 'en' ? 'ar' : 'en')}
-              className="px-3 py-1.5 bg-slate-900 border border-slate-800 text-slate-300 rounded-xl text-xs font-semibold flex items-center gap-1 cursor-pointer"
+              className="px-2.5 py-1.5 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 rounded-xl text-xs font-semibold flex items-center gap-1 cursor-pointer"
             >
-              <Globe className="w-3 h-3 text-blue-400" />
+              <Globe className="w-3 h-3 text-blue-500 dark:text-blue-400" />
               <span>{lang === 'en' ? 'العربية' : 'EN'}</span>
             </button>
 
             <button
               id="mobile-menu-toggle"
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 text-slate-300 hover:text-white hover:bg-slate-800/40 rounded-xl transition-colors cursor-pointer"
+              className="p-1.5 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/40 rounded-xl transition-colors cursor-pointer"
               aria-label="Toggle Menu"
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -162,7 +182,7 @@ export default function Navbar({ onRegisterClick, lang, setLang, currentPage, on
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed top-20 left-0 w-full z-40 lg:hidden px-6 pb-8 bg-slate-950/95 backdrop-blur-xl border-b border-slate-800/90 shadow-2xl flex flex-col gap-6"
+            className="fixed top-20 left-0 w-full z-40 lg:hidden px-6 pb-8 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800/90 shadow-2xl flex flex-col gap-6"
           >
             <div className="flex flex-col gap-4 mt-4">
               {navLinks.map((link) => (
@@ -170,10 +190,10 @@ export default function Navbar({ onRegisterClick, lang, setLang, currentPage, on
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleNavLinkClick(e, link.href)}
-                  className={`text-base font-medium py-2 border-b border-slate-900 transition-colors ${
+                  className={`text-base font-medium py-2 border-b border-slate-100 dark:border-slate-900 transition-colors ${
                     link.href === '#ijcc' && currentPage === 'championship'
-                      ? 'text-amber-400'
-                      : 'text-slate-300 hover:text-white'
+                      ? 'text-amber-500 dark:text-amber-400'
+                      : 'text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
                   }`}
                 >
                   {link.name}

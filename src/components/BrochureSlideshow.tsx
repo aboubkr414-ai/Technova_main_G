@@ -134,14 +134,14 @@ export default function BrochureSlideshow({ lang, onRegisterClick }: BrochureSli
       
       {/* Title block inside Hero component */}
       <div className="text-center mb-6 space-y-2">
-        <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-500/10 border border-amber-500/20 rounded-full text-amber-400 text-xs font-mono uppercase tracking-wider">
+        <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-500/10 border border-amber-500/20 rounded-full text-amber-600 dark:text-amber-400 text-xs font-mono uppercase tracking-wider">
           <Sparkles className="w-3.5 h-3.5" />
           {lang === 'en' ? 'Interactive Brochure Showroom' : 'معرض منشورات البطولة التفاعلي'}
         </span>
-        <h3 className="text-xl md:text-2xl font-black text-white">
+        <h3 className="text-xl md:text-2xl font-black text-slate-900 dark:text-white">
           {lang === 'en' ? 'Official Championship Flyers & Materials' : 'منشورات وحملات البطولة المعتمدة'}
         </h3>
-        <p className="text-slate-400 text-xs max-w-xl mx-auto">
+        <p className="text-slate-600 dark:text-slate-400 text-xs max-w-xl mx-auto">
           {lang === 'en' 
             ? 'Swipe or play the slideshow below to preview the official tournament brochures distributed worldwide.' 
             : 'تصفح أو قم بتشغيل العرض التلقائي بالأسفل لمعاينة الملصقات الرسمية للبطولة والمنشورة عالمياً.'}
@@ -149,7 +149,7 @@ export default function BrochureSlideshow({ lang, onRegisterClick }: BrochureSli
       </div>
 
       {/* Main Slideshow Frame */}
-      <div className="bg-slate-900/50 border border-slate-800/80 rounded-[2rem] p-4 md:p-6 shadow-2xl relative overflow-hidden backdrop-blur-md">
+      <div className="bg-white/80 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800/80 rounded-[2rem] p-4 md:p-6 shadow-2xl relative overflow-hidden backdrop-blur-md">
         
         {/* Subtle decorative background light */}
         <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full blur-2xl pointer-events-none" />
@@ -161,7 +161,7 @@ export default function BrochureSlideshow({ lang, onRegisterClick }: BrochureSli
           <div className="md:col-span-7 relative group">
             
             {/* Visual Frame */}
-            <div className="aspect-[4/3] bg-slate-950 rounded-2xl overflow-hidden border border-slate-800 shadow-inner relative flex items-center justify-center">
+            <div className="aspect-[4/3] bg-slate-50 dark:bg-slate-950 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-inner relative flex items-center justify-center">
               
               {/* Slides with AnimatePresence */}
               <AnimatePresence mode="wait">
@@ -184,21 +184,21 @@ export default function BrochureSlideshow({ lang, onRegisterClick }: BrochureSli
                   {/* Floating magnification trigger */}
                   <button
                     onClick={() => setIsLightboxOpen(true)}
-                    className="absolute top-4 right-4 p-2.5 bg-slate-950/80 hover:bg-slate-900 text-white rounded-xl border border-slate-800/80 backdrop-blur-md transition-all opacity-0 group-hover:opacity-100 shadow-lg cursor-pointer"
+                    className="absolute top-4 right-4 p-2.5 bg-slate-900/90 dark:bg-slate-950/80 hover:bg-slate-800 dark:hover:bg-slate-900 text-slate-800 dark:text-white rounded-xl border border-slate-200 dark:border-slate-800/80 backdrop-blur-md transition-all opacity-0 group-hover:opacity-100 shadow-lg cursor-pointer"
                     title={lang === 'en' ? 'Expand Flyer' : 'تكبير المنشور'}
                   >
-                    <Maximize2 className="w-4 h-4 text-amber-400" />
+                    <Maximize2 className="w-4 h-4 text-amber-600 dark:text-amber-400" />
                   </button>
 
                   {/* Indicator banner on active slide */}
-                  <div className="absolute bottom-4 left-4 right-4 bg-slate-950/90 border border-slate-800/80 backdrop-blur-md p-3 rounded-xl flex items-center justify-between gap-3 shadow-lg">
+                  <div className="absolute bottom-4 left-4 right-4 bg-white/95 dark:bg-slate-950/90 border border-slate-200 dark:border-slate-800/80 backdrop-blur-md p-3 rounded-xl flex items-center justify-between gap-3 shadow-lg">
                     <div className="flex items-center gap-2">
                       <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                      <span className="text-[10px] font-mono uppercase tracking-widest font-black text-slate-300">
+                      <span className="text-[10px] font-mono uppercase tracking-widest font-black text-slate-700 dark:text-slate-300">
                         {currentBrochure.tag}
                       </span>
                     </div>
-                    <span className="text-[10px] font-mono text-slate-500 font-bold">
+                    <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400 font-bold">
                       {currentIndex + 1} / {BROCHURES.length}
                     </span>
                   </div>
@@ -214,7 +214,7 @@ export default function BrochureSlideshow({ lang, onRegisterClick }: BrochureSli
                   e.stopPropagation();
                   handlePrev();
                 }}
-                className="w-9 h-9 bg-slate-950/90 border border-slate-800/80 backdrop-blur-md rounded-xl flex items-center justify-center text-white hover:text-amber-400 hover:scale-105 pointer-events-auto transition-all shadow-md cursor-pointer"
+                className="w-9 h-9 bg-white/90 dark:bg-slate-950/90 border border-slate-200 dark:border-slate-800/80 backdrop-blur-md rounded-xl flex items-center justify-center text-slate-750 dark:text-white hover:text-amber-600 dark:hover:text-amber-400 hover:scale-105 pointer-events-auto transition-all shadow-md cursor-pointer"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
@@ -223,7 +223,7 @@ export default function BrochureSlideshow({ lang, onRegisterClick }: BrochureSli
                   e.stopPropagation();
                   handleNext();
                 }}
-                className="w-9 h-9 bg-slate-950/90 border border-slate-800/80 backdrop-blur-md rounded-xl flex items-center justify-center text-white hover:text-amber-400 hover:scale-105 pointer-events-auto transition-all shadow-md cursor-pointer"
+                className="w-9 h-9 bg-white/90 dark:bg-slate-950/90 border border-slate-200 dark:border-slate-800/80 backdrop-blur-md rounded-xl flex items-center justify-center text-slate-750 dark:text-white hover:text-amber-600 dark:hover:text-amber-400 hover:scale-105 pointer-events-auto transition-all shadow-md cursor-pointer"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
@@ -236,25 +236,25 @@ export default function BrochureSlideshow({ lang, onRegisterClick }: BrochureSli
             
             <div className="space-y-4">
               <div className="space-y-1">
-                <span className="text-[10px] font-mono tracking-widest text-blue-400 uppercase font-black">
+                <span className="text-[10px] font-mono tracking-widest text-blue-600 dark:text-blue-400 uppercase font-black">
                   {lang === 'en' ? 'CHAMPIONSHIP CAMPAIGN' : 'حملة البطولة الرسمية'}
                 </span>
-                <h4 className="text-lg font-extrabold text-white leading-snug">
+                <h4 className="text-lg font-extrabold text-slate-900 dark:text-white leading-snug">
                   {lang === 'en' ? currentBrochure.titleEn : currentBrochure.titleAr}
                 </h4>
               </div>
 
-              <p className="text-slate-400 text-xs leading-relaxed">
+              <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
                 {lang === 'en' ? currentBrochure.descEn : currentBrochure.descAr}
               </p>
 
               {/* Free features checklist inside slideshow */}
-              <div className="space-y-2 bg-slate-950/40 p-3.5 border border-slate-850 rounded-xl">
-                <div className="flex items-center gap-2 text-[10px] font-bold text-amber-400 uppercase tracking-wider">
+              <div className="space-y-2 bg-slate-50 dark:bg-slate-950/40 p-3.5 border border-slate-200 dark:border-slate-850 rounded-xl">
+                <div className="flex items-center gap-2 text-[10px] font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider">
                   <CheckCircle className="w-3.5 h-3.5 shrink-0" />
                   <span>{lang === 'en' ? 'Verified Credentials' : 'بيانات معتمدة ومؤكدة'}</span>
                 </div>
-                <div className="text-[11px] text-slate-500 leading-normal">
+                <div className="text-[11px] text-slate-500 dark:text-slate-400 leading-normal">
                   {lang === 'en' 
                     ? 'Registration, training materials, and final project submissions are 100% free of charge.' 
                     : 'التسجيل والمواد التدريبية وتقديم المشاريع مجاني بالكامل وبدون رسوم.'}
@@ -275,27 +275,27 @@ export default function BrochureSlideshow({ lang, onRegisterClick }: BrochureSli
 
                 <button
                   onClick={handleShare}
-                  className="p-3 bg-slate-950 hover:bg-slate-850 border border-slate-800 text-slate-400 hover:text-white rounded-xl transition-all duration-200 cursor-pointer"
+                  className="p-3 bg-slate-50 dark:bg-slate-950 hover:bg-slate-100 dark:hover:bg-slate-850 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-xl transition-all duration-200 cursor-pointer"
                   title={lang === 'en' ? 'Copy Link' : 'نسخ رابط الملصق'}
                 >
-                  <Share2 className="w-4 h-4 text-amber-500" />
+                  <Share2 className="w-4 h-4 text-amber-600 dark:text-amber-500" />
                 </button>
               </div>
 
               {/* Slideshow Controls Bar */}
-              <div className="flex items-center justify-between px-3 py-2 bg-slate-950/80 border border-slate-805 rounded-xl text-xs text-slate-500">
+              <div className="flex items-center justify-between px-3 py-2 bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-805 rounded-xl text-xs text-slate-500 dark:text-slate-400">
                 <button
                   onClick={() => setIsPlaying(!isPlaying)}
-                  className="flex items-center gap-1.5 text-slate-400 hover:text-white transition-colors font-mono font-bold cursor-pointer"
+                  className="flex items-center gap-1.5 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors font-mono font-bold cursor-pointer"
                 >
                   {isPlaying ? (
                     <>
-                      <Pause className="w-3.5 h-3.5 text-amber-400" />
+                      <Pause className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
                       <span>{lang === 'en' ? 'Pause Autoplay' : 'إيقاف مؤقت'}</span>
                     </>
                   ) : (
                     <>
-                      <Play className="w-3.5 h-3.5 text-emerald-400 fill-emerald-400/10" />
+                      <Play className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 fill-emerald-500/10" />
                       <span>{lang === 'en' ? 'Resume Play' : 'تشغيل تلقائي'}</span>
                     </>
                   )}
@@ -307,7 +307,7 @@ export default function BrochureSlideshow({ lang, onRegisterClick }: BrochureSli
                       key={idx}
                       onClick={() => setCurrentIndex(idx)}
                       className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
-                        idx === currentIndex ? 'w-4 bg-amber-400' : 'w-1.5 bg-slate-800 hover:bg-slate-700'
+                        idx === currentIndex ? 'w-4 bg-amber-500' : 'w-1.5 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700'
                       }`}
                     />
                   ))}
