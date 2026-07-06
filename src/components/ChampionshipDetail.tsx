@@ -7,7 +7,7 @@ import {
   ArrowLeft, 
   ArrowRight, 
   ExternalLink, 
-  ShieldAlert, 
+  ShieldCheck, 
   MessageSquare, 
   Share2, 
   Mail, 
@@ -82,8 +82,8 @@ export default function ChampionshipDetail({ lang, onBackClick, onRegisterClick 
       regTitle: 'Registration Details',
       regCost: 'Registration is 100% FREE.',
       regNoFee: 'There is no registration fee to take part in IJCC 2026.',
-      warningHeader: 'Security Notice',
-      warningBody: 'Please do not pay anyone claiming to represent TechNova International. TNI does not authorize any individual or organization to collect money on our behalf.',
+      warningHeader: 'Official Enrollment Policy',
+      warningBody: 'TechNova International (TNI) is committed to accessible global education. To ensure fair opportunity, the IJCC 2026 registration, training materials, and exams are 100% free of charge. Please note that TNI does not authorize any agent, individual, or external entity to collect fees. All official registration must be submitted directly through our verified channels.',
       howToReg: 'How to register:',
       scanOrClick: 'Scan the QR code on our official materials or click the link below:',
       regButton: 'Open Official Google Form Registration',
@@ -159,8 +159,8 @@ export default function ChampionshipDetail({ lang, onBackClick, onRegisterClick 
       regTitle: 'تفاصيل التسجيل الرسمي',
       regCost: 'التسجيل مجاني بنسبة 100%.',
       regNoFee: 'لا توجد أي رسوم أو مبالغ مالية للمشاركة في بطولة IJCC 2026.',
-      warningHeader: 'تنبيه أمني هام',
-      warningBody: 'يرجى عدم دفع أي أموال لأي جهة أو شخص يدعي تمثيل تكنونوفا الدولية. TNI لا تفوض أي فرد أو منظمة لجمع الأموال نيابة عنها.',
+      warningHeader: 'سياسة التسجيل والقبول الرسمية',
+      warningBody: 'تلتزم تكنونوفا الدولية (TNI) بتوفير فرص التعليم العالمي المتميز للجميع. لضمان تكافؤ الفرص، فإن جميع مراحل التسجيل في بطولة IJCC 2026 والمواد التدريبية والامتحانات مجانية بالكامل بنسبة %100 وبدون أي رسوم. يرجى العلم بأن المؤسسة لا تفوض أي وكيل، فرد، أو جهة خارجية لتحصيل أي رسوم. يجب تقديم جميع طلبات التسجيل الرسمية مباشرة من خلال قنواتنا المعتمدة.',
       howToReg: 'كيفية التسجيل:',
       scanOrClick: 'امسح رمز الاستجابة السريعة (QR) على المواد الرسمية أو انقر على الرابط المباشر أدناه:',
       regButton: 'افتح نموذج التسجيل الرسمي عبر Google Form',
@@ -379,24 +379,25 @@ export default function ChampionshipDetail({ lang, onBackClick, onRegisterClick 
       {/* Section: Registration & Security Alert */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-12">
         
-        {/* Scam warning Alert box */}
+        {/* Reassuring Enrollment Policy notice */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.98 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="md:col-span-5 bg-rose-500/10 border border-rose-500/20 rounded-3xl p-6 md:p-8 flex flex-col justify-between"
+          className="md:col-span-5 bg-slate-900/40 border border-slate-800/80 rounded-3xl p-6 md:p-8 flex flex-col justify-between relative overflow-hidden shadow-lg"
         >
+          <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/5 rounded-full blur-2xl pointer-events-none" />
           <div>
-            <div className="flex items-center gap-2 text-rose-400 font-bold mb-4">
-              <ShieldAlert className="w-6 h-6 shrink-0" />
-              <span className="text-sm font-mono uppercase tracking-wider">{t.warningHeader}</span>
+            <div className="flex items-center gap-2 text-blue-400 font-semibold mb-4">
+              <ShieldCheck className="w-6 h-6 shrink-0 text-emerald-400" />
+              <span className="text-sm font-mono uppercase tracking-wider text-slate-200">{t.warningHeader}</span>
             </div>
-            <p className="text-sm text-slate-300 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
               {t.warningBody}
             </p>
           </div>
-          <div className="mt-8 pt-4 border-t border-rose-500/10">
-            <span className="text-[11px] font-mono text-rose-400 font-semibold uppercase">{t.regCost}</span>
+          <div className="mt-8 pt-4 border-t border-slate-800/60">
+            <span className="text-[11px] font-mono text-emerald-400 font-bold uppercase tracking-wider">{t.regCost}</span>
             <p className="text-xs text-slate-400 mt-1">{t.regNoFee}</p>
           </div>
         </motion.div>

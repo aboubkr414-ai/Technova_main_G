@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight, MessageSquare, ChevronDown, Award, Play, Sparkles, Calendar, Trophy, Zap, ShieldAlert } from 'lucide-react';
+import { ArrowRight, MessageSquare, ChevronDown, Award, Play, Sparkles, Calendar, Trophy, Zap, ShieldCheck } from 'lucide-react';
 import { Language, translations } from '../translations';
 import BrochureSlideshow from './BrochureSlideshow';
 
@@ -159,27 +159,27 @@ export default function Hero({ onRegisterClick, lang, onPageChange }: HeroProps)
           {t.heroSubtitle}
         </motion.p>
 
-        {/* Anti-Scam Security Notice: Highlighted Homepage Warning (User Request) */}
+        {/* Reassuring Enrollment Policy notice */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.35 }}
-          className="w-full max-w-4xl bg-rose-500/10 border border-rose-500/25 rounded-2xl p-4 mb-10 flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left rtl:sm:text-right relative overflow-hidden backdrop-blur-md shadow-xl"
+          className="w-full max-w-4xl bg-slate-900/30 border border-slate-800/80 rounded-2xl p-4.5 mb-10 flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left rtl:sm:text-right relative overflow-hidden backdrop-blur-md shadow-lg"
         >
           {/* subtle decorative background glow */}
-          <div className="absolute top-0 right-0 w-32 h-32 bg-rose-500/5 rounded-full blur-2xl pointer-events-none" />
-          <div className="p-2.5 bg-rose-500/15 border border-rose-500/20 rounded-xl shrink-0">
-            <ShieldAlert className="w-5 h-5 text-rose-400" />
+          <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl pointer-events-none" />
+          <div className="p-2.5 bg-blue-500/10 border border-blue-500/15 rounded-xl shrink-0">
+            <ShieldCheck className="w-5 h-5 text-emerald-400" />
           </div>
           <div className="space-y-1.5 flex-1">
-            <h4 className="text-sm font-extrabold text-rose-400 uppercase tracking-wider flex flex-wrap items-center justify-center sm:justify-start gap-2">
+            <h4 className="text-sm font-extrabold text-blue-400 uppercase tracking-wider flex flex-wrap items-center justify-center sm:justify-start gap-2">
               <span>{t.warningHeader}</span>
-              <span className="px-2 py-0.5 text-[9px] bg-rose-500/20 text-rose-300 rounded-full font-mono uppercase tracking-wider border border-rose-500/20">
+              <span className="px-2 py-0.5 text-[9px] bg-emerald-500/10 text-emerald-400 rounded-full font-mono uppercase tracking-wider border border-emerald-500/20 font-semibold">
                 {t.warningFreeTitle}
               </span>
             </h4>
-            <p className="text-slate-300 text-xs leading-relaxed font-medium">
-              <span className="text-rose-200 font-bold">{t.warningFreeSubtitle} </span>
+            <p className="text-slate-300 text-xs leading-relaxed font-light">
+              <span className="text-emerald-400 font-semibold">{t.warningFreeSubtitle} </span>
               {t.warningBody}
             </p>
           </div>

@@ -230,10 +230,10 @@ export const translations = {
       { name: 'Academic Partners', href: '#why-choose' },
       { name: 'Global Impact Summary', href: '#why-choose' },
     ],
-    warningHeader: 'Security Notice',
-    warningBody: 'Please do not pay anyone claiming to represent TechNova International. We do not authorize any individual or organization to collect money on our behalf.',
-    warningFreeTitle: 'REGISTRATION IS 100% FREE!',
-    warningFreeSubtitle: 'There is NO registration fee to take part in IJCC 2026.'
+    warningHeader: 'Official Enrollment Policy',
+    warningBody: 'TechNova International (TNI) is committed to accessible global education. To ensure fair opportunity, the IJCC 2026 registration, training materials, and exams are 100% free of charge. Please note that TNI does not authorize any agent, individual, or external entity to collect fees. All official registration must be submitted directly through our verified channels.',
+    warningFreeTitle: '100% FREE PUBLIC ENROLLMENT',
+    warningFreeSubtitle: 'Registration, training, and submissions carry zero cost.'
   },
   ar: {
     // Navbar
@@ -464,9 +464,9 @@ export const translations = {
       { name: 'الشركاء الأكاديميين المعتمدين', href: '#why-choose' },
       { name: 'ملخص التأثير العالمي والاجتماعي', href: '#why-choose' },
     ],
-    warningHeader: 'تنبيه أمني',
-    warningBody: 'يرجى عدم دفع أي مبالغ مالية لأي جهة أو شخص يدعي تمثيل تكنونوفا الدولية. نحن لا نفوض أي فرد أو جهة لجمع الأموال نيابة عنا.',
-    warningFreeTitle: 'التسجيل مجاني بنسبة %100!',
-    warningFreeSubtitle: 'لا توجد أي رسوم للتسجيل في بطولة IJCC 2026.'
+    warningHeader: 'سياسة التسجيل والقبول الرسمية',
+    warningBody: 'تلتزم تكنونوفا الدولية (TNI) بتوفير فرص التعليم العالمي المتميز للجميع. لضمان تكافؤ الفرص، فإن جميع مراحل التسجيل في بطولة IJCC 2026 والمواد التدريبية والامتحانات مجانية بالكامل بنسبة %100 وبدون أي رسوم. يرجى العلم بأن المؤسسة لا تفوض أي وكيل، فرد، أو جهة خارجية لتحصيل أي رسوم. يجب تقديم جميع طلبات التسجيل الرسمية مباشرة من خلال قنواتنا المعتمدة.',
+    warningFreeTitle: 'تسجيل عام مجاني بالكامل %100',
+    warningFreeSubtitle: 'لا توجد أي تكلفة للتسجيل، أو التدريب، أو تسليم المشاريع.'
   }
 };
