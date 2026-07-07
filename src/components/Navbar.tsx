@@ -20,19 +20,39 @@ export default function Navbar({ onRegisterClick, lang, setLang, currentPage, on
   const handleNavLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setIsOpen(false);
-    if (href === '#ijcc') {
-      onPageChange('championship');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    
+    const cleanHref = href.replace(/^#\/?/, '');
+    const currentHash = window.location.hash.replace(/^#\/?/, '');
+    
+    // Normalize target values for comparison
+    const isTargetChampionship = cleanHref === 'ijcc' || cleanHref === 'championship';
+    const isCurrentChampionship = currentHash === 'ijcc' || currentHash === 'championship';
+
+    if (isTargetChampionship) {
+      if (isCurrentChampionship) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        window.location.hash = '#championship';
+      }
     } else {
-      onPageChange('home');
-      setTimeout(() => {
-        const target = document.querySelector(href);
+      // If we are already on this section/route, trigger a smooth scroll immediately
+      if (currentHash === cleanHref) {
+        const target = document.getElementById(cleanHref);
         if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
-        } else if (href === '#home') {
+          const navbarOffset = 90;
+          const elementPosition = target.getBoundingClientRect().top + window.scrollY;
+          const offsetPosition = elementPosition - navbarOffset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        } else if (cleanHref === 'home') {
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-      }, 120);
+      } else {
+        // Change the hash, which will be caught by the App component's listener
+        window.location.hash = href;
+      }
     }
   };
 

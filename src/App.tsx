@@ -35,6 +35,14 @@ export default function App() {
     localStorage.setItem('techNovaTheme', newTheme);
   };
 
+  const handlePageChange = (page: 'home' | 'championship') => {
+    if (page === 'championship') {
+      window.location.hash = '#championship';
+    } else {
+      window.location.hash = '#home';
+    }
+  };
+
   useEffect(() => {
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
     document.documentElement.lang = lang;
@@ -49,8 +57,45 @@ export default function App() {
   }, [theme]);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [currentPage]);
+    const handleHashChange = () => {
+      const hash = window.location.hash || '';
+      const cleanHash = hash.replace(/^#\/?/, '');
+
+      if (cleanHash === 'championship' || cleanHash === 'ijcc') {
+        setCurrentPage('championship');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        setCurrentPage('home');
+        
+        // If there's a specific section on the home page, scroll to it smoothly
+        if (cleanHash && cleanHash !== 'home') {
+          setTimeout(() => {
+            const element = document.getElementById(cleanHash);
+            if (element) {
+              const navbarOffset = 90; // offset for the sticky navbar height
+              const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+              const offsetPosition = elementPosition - navbarOffset;
+              
+              window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+              });
+            }
+          }, 150);
+        } else if (cleanHash === 'home' || !cleanHash) {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      }
+    };
+
+    // Run once on initial render to parse deep-linked path
+    handleHashChange();
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+    };
+  }, []);
 
   const handleOpenRegister = () => {
     window.open('https://forms.gle/HAP7HhKNG9urFFH96', '_blank', 'noopener,noreferrer');
@@ -76,7 +121,7 @@ export default function App() {
         lang={lang} 
         setLang={handleSetLang} 
         currentPage={currentPage}
-        onPageChange={setCurrentPage}
+        onPageChange={handlePageChange}
         theme={theme}
         setTheme={handleSetTheme}
       />
@@ -85,10 +130,10 @@ export default function App() {
       <main className="relative z-10">
         {currentPage === 'home' ? (
           <>
-            <Hero onRegisterClick={handleOpenRegister} lang={lang} onPageChange={setCurrentPage} />
+            <Hero onRegisterClick={handleOpenRegister} lang={lang} onPageChange={handlePageChange} />
             <About lang={lang} />
             <Programs onRegisterClick={handleOpenRegister} lang={lang} />
-            <Competition onRegisterClick={handleOpenRegister} lang={lang} onPageChange={setCurrentPage} />
+            <Competition onRegisterClick={handleOpenRegister} lang={lang} onPageChange={handlePageChange} />
             <ChampionshipPromo lang={lang} onRegisterClick={handleOpenRegister} />
             <WhyChoose onRegisterClick={handleOpenRegister} lang={lang} />
             <Team lang={lang} />
@@ -97,7 +142,7 @@ export default function App() {
         ) : (
           <ChampionshipDetail 
             lang={lang} 
-            onBackClick={() => setCurrentPage('home')} 
+            onBackClick={() => handlePageChange('home')} 
             onRegisterClick={handleOpenRegister}
           />
         )}
